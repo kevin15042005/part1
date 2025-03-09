@@ -4,6 +4,8 @@ import image2 from "../../assets/positivismo.jpg";
 import video from "../../assets/video1.mp4";
 
 const Background = ({ playStatus, heroCont }) => {
+  console.log(heroCont);
+  console.log(playStatus);
   if (playStatus) {
     return (
       <div className="videoPricipal">

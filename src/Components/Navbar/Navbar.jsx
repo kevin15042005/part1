@@ -13,12 +13,12 @@ const Navbar = () => {
         <li>
           <Link to="/contacto">Contacto</Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/nosotros">Nosotros</Link>
-        </li>
-        <li className="nav-contact">
+        </li> */}
+        {/* <li className="nav-contact">
           <Link to="/login">Login</Link>
-        </li>
+        </li> */}
       </ul>
     </div>
   );
