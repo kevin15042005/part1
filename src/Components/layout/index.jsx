@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { Children, useState } from 'react'
 
 import Navbar from '../Navbar/Navbar';
-import Footer from '../Navbar/Navbar';
+import Footer from '../Footer/footer';
 import Background from "../Background/Background";
 
 const  Layout = ({ children })=> {
@@ -30,9 +30,10 @@ const  Layout = ({ children })=> {
       {
         children
       }
-      <Footer />
+      <Footer />{
+      }
     </div>
   )
 }
 
-export default Layout
+export default Layout;

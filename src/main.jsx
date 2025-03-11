@@ -5,6 +5,8 @@ import App from './App.jsx'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Pintura from "./Pages/Pintura/Index";
 import Contacto from "./Pages/Contacto/Index";
+import Loging from './Pages/Loging/index.jsx';
+import Ventas from './Pages/Ventas/Index.jsx'
 // import Nosotros from "";
 // import Login from "";
 
@@ -15,6 +17,8 @@ createRoot(document.getElementById('root')).render(
       <Route index path="/" element={<App />} />
       <Route  path="/Pintura" element={<Pintura/>} />
           <Route path="/Contacto" element={<Contacto/>} />
+          <Route path = "/Loging"element={<Loging/>}/>
+          <Route path = "/Ventas"element={<Ventas/>}/>
   {/* {        <Route path="/Nostros" element={<Nosotros/>} />
           <Route path="/Login" element={<Login/>} />} */}
     </Routes>
