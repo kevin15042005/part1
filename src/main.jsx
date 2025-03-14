@@ -16,7 +16,8 @@ createRoot(document.getElementById("root")).render(
         <Route path="/Pintura" element={<Pintura />} />
         <Route path="/Contacto" element={<Contacto />} />
         {/* {        <Route path="/Nostros" element={<Nosotros/>} />
-          <Route path="/Login" element={<Login/>} />} */}
+4a477
+ath="/Login" element={<Login/>} />} */}
       </Routes>
     </BrowserRouter>
   </StrictMode>
