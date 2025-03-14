@@ -8,10 +8,17 @@ const Navbar = () => {
       <div className="nav-logo">DUART-STUDIO</div>
       <ul className="nav-menu">
         <li>
+          <Link to="/">Inicio</Link> 
+        </li>
+        <li>
           <Link to="/pintura">Pintura</Link>
         </li>
         <li>
           <Link to="/contacto">Contacto</Link>
+        </li>
+
+        <li>
+          <Link to="/noticias">Noticias</Link>
         </li>
         {/* <li>
           <Link to="/nosotros">Nosotros</Link>

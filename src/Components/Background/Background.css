@@ -1,6 +1,6 @@
 .background {
   width: 100%;
-  height: 100%;
+  height: 50%;
   object-fit: cover; 
   z-index: -1; /* Esto asegura que la imagen o video cubra completamente el contenedor */
   position: fixed; /* Asegura que la imagen de fondo esté fija en la pantalla */

@@ -1,0 +1,11 @@
+{
+    "comment": "watch sirve para ver le archivo a observar",
+    "watch": ["src"],
+    "comment1":"ext es la que debe estar vigilando osea javascript y json",
+    "ext": "js,json",
+    "comment2":"no observa directorios module",
+    "ingnore": ["node_modules"],
+    "comment3":"exec es lo primordial es cuando se hace un cambio en el archivo en este caso index.js",
+    "exec": "node backend/index.js"
+
+}
