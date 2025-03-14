@@ -1,10 +1,11 @@
 import express from "express";
 import mysql from "mysql2";
-
+import cors from "cors";
 const app = express();
 
 // Middleware para permitir JSON (opcional pero recomendado)
 app.use(express.json());
+app.use(cors())
 
 // Configurar conexión a la base de datos
 const db = mysql.createConnection({

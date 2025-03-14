@@ -1,9 +1,10 @@
 .nav{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin: 40px 120px;
     color: black;
+    background-color: green;
 }
 nav-log{
 font-family: Outfit;
@@ -15,6 +16,11 @@ gap:20px
     align-items: center;
     list-style: none;
     gap:90px;
+    text-decoration:underline
+}
+.navLogo{
+    width: 100px;
+    border-radius: 50px;
 }
 .nav-contact{
 border-radius: 50px;

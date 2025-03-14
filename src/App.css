@@ -40,3 +40,37 @@
 .read-the-docs {
   color: #888;
 }
+
+.MarcasAliadas{
+  display: flex;
+  justify-content: space-around;
+  padding: 50px;
+}
+
+.slider-container{
+overflow: hidden;
+white-space: nowrap;
+position: relative;
+width: 100%;
+padding: 10px 0;
+background: #fff;
+}
+
+.slider{
+  display: flex;
+  width: max-content;
+  animation:scroll 25s linear infinite;
+}
+.slider img{
+  width: 150px;
+  height: auto;
+  margin: 0 15px;
+}
+@keyframes scroll {
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-50%);
+  }
+}
