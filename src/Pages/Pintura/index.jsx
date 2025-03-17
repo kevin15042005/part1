@@ -1,12 +1,16 @@
 import React from "react";
 import Layout from "../../Components/layout";
-
-export default function Contacto() {
+import Footer from "../../Components/Footer/footer"
+export default function Pintura() {
   return (
-    <Layout>
+    <>
+    <Layout/>
       <div>
-        <h1>Contacto</h1>
+        <h1>Pintura</h1>
       </div>
-    </Layout>
+    <div>
+        <Footer />
+      </div>
+    </>
   );
 }

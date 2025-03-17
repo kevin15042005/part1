@@ -4,20 +4,25 @@ import "./Navbar.css";
 import Logo from "../../assets/LogoPrincipal.jpg";
 const Navbar = () => {
   return (
+    <>
+    <div>
+      
+    </div>
     <div className="nav">
-      <div className="nav-logo"><img src={Logo} className="navLogo" alt="" /></div>
       <ul className="nav-menu">
         <li>
-          <Link to="/">Inicio</Link> 
+          <Link to="/" className="colorTexto">Inicio</Link> 
         </li>
         <li>
-          <Link to="/pintura">Pintura</Link>
+          <Link to="/pintura" className="colorTexto">Pintura</Link>
+        </li>
+        <div className="nav-logo"><img src={Logo} className="navLogo" alt="" /></div>
+
+        <li>
+          <Link to="/contacto" className="colorTexto">Contacto</Link>
         </li>
         <li>
-          <Link to="/contacto">Contacto</Link>
-        </li>
-        <li>
-          <Link to="/noticias">Noticias</Link>
+          <Link to="/noticias" className="colorTexto">Noticias</Link>
         </li>
         {/* <li>
           <Link to="/nosotros">Nosotros</Link>
@@ -27,6 +32,7 @@ const Navbar = () => {
         </li> */}
       </ul>
     </div>
+    </>
   );
 };
 

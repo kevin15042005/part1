@@ -1,10 +1,31 @@
-#root {
+.BienvenidaApp {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
+.InformacionRelevante{
+  max-width: 37rem;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+  line-height: 1.5;
+  background-color:#0026af33;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  transition:transform 0.5s cubic-bezier(0.25,0.9,0.25,1)
 
+}
+.InformacionRelevante:hover{
+  transform: translateY(-5px);
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.5);
+
+}
+.Introdccuion_Duart{
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -44,8 +65,10 @@
 .MarcasAliadas{
   display: flex;
   justify-content: space-around;
-  padding: 50px;
+  padding: 10px;
 }
+
+
 
 .slider-container{
 overflow: hidden;

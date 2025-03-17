@@ -5,8 +5,7 @@ import "./footer.css";
 const Footer = () => {
   return (
     <div className="Footer">
-      <div className="footer-inicio"> @Copyright</div>
-      <div className="footer-nav">
+      <div className="footer-nav">  @Copyright </div>
         <ul className="nav-footer">
           <li>
             <Link to="/contacto" className="nav-link">
@@ -60,7 +59,7 @@ const Footer = () => {
             <p>S: 9AM-2PM</p>
           </li>
         </ul>
-      </div>
+      
     </div>
   );
 };

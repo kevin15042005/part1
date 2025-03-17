@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Navbar from '../Navbar/Navbar';
-import Background from "../Background/Background";
 
 const Layout = ({ children }) => {
   const [count, setCount] = useState(0);
@@ -22,7 +21,6 @@ const Layout = ({ children }) => {
   const [playStatus, setPlayStatus] = useState(false);
   return (
     <div className="Main">
-      <Background playStatus={playStatus} heroCont={heroCont} />
 
       <Navbar />
       {
