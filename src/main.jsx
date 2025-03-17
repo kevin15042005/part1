@@ -3,11 +3,11 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Contacto from "./Pages/Contacto/Index";
-import Pintura from "./Pages/Pintura/Index";
-import Noticias from "./Pages/Noticias/Index";
-import Add from "./Pages/Noticias/Add";
-import Update from "./Pages/Noticias/Update";
+import Contacto from "./Pages/Contacto";
+import Pintura from "./Pages/Pintura";
+import Noticias from "./Pages/Noticias";
+import Add from "./Pages/Noticias/Crear";
+import Update from "./Pages/Noticias/Actulizar";
 // import Nosotros from "";
 // import Login from "";
 

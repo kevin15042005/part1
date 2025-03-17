@@ -2,7 +2,7 @@ import "./App.css";
 import Layout from "./Components/layout";
 import Footer from "./Components/Footer/footer";
 import Marca1 from "./assetsslider/yamaha.png";
-import Marca2 from "./assetsslider/auteco.png";
+import Marca2 from "./assetsslider/yamaha2.png";
 import Marca3 from "./assetsslider/ducati.png";
 import Marca4 from "./assetsslider/vitrix.png";
 

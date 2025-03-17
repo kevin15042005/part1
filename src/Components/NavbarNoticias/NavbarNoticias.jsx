@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./NavbarNoticias.css"; // Asegúrate de importar los estilos
-import 
 function NavbarNoticias() {
   const [submenuOpen, setSubmenuOpen] = useState(false);
 
