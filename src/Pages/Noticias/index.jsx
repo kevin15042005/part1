@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../../Components/layout";
 import Footer from "../../Components/Footer/footer";
-export default function Loging() {
+export default function Noticias() {
     return (
       <>
       <div id="main-container">

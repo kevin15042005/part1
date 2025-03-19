@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../../../Components/layout";
+import Layout from "../../../../Components/layout";
 
 export default function Actulizar() {
   return (

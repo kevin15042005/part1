@@ -1,10 +1,11 @@
 import React from "react";
 import Layout from "../../Components/layout";
 import Footer from "../../Components/Footer/footer";
-import "./Contacto.css";
+import "./Contacto.css"
 import Facebook from "../../assest-icons/facebook.png";
 import Intagram from "../../assest-icons/instagram.png";
 import TikTok from "../../assest-icons/tiktok.png";
+import "./Contacto.css"
 
 export default function Contacto() {
   const [result, setResult] = React.useState("");

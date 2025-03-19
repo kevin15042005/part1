@@ -6,9 +6,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Contacto from "./Pages/Contacto";
 import Pintura from "./Pages/Pintura";
 import Noticias from "./Pages/Noticias";
-import Add from "./Pages/Noticias/Crear";
-import Update from "./Pages/Noticias/Actulizar";
-import Loging from "./Pages/Loging/Index.jsx";
+import Loging from "./Pages/Loging/Index";
 import Ubicacion from "./Pages/Ubicacion/Index.jsx";
 
 createRoot(document.getElementById("root")).render(
@@ -19,8 +17,6 @@ createRoot(document.getElementById("root")).render(
         <Route path="/Pintura" element={<Pintura/>} />
         <Route path="/Contacto" element={<Contacto/>} />
         <Route path="/Noticias" element={<Noticias/>} />
-        <Route path="Noticias/Add" element={<Add/>} />
-        <Route path="Noticias/update" element={<Update/>} />
         <Route path="Loging" element={<Loging/>}/>
         <Route path="Ubicacion" element={<Ubicacion/>}/>
       </Routes>
