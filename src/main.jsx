@@ -7,7 +7,7 @@ import Contacto from "./Pages/Contacto";
 import Pintura from "./Pages/Pintura";
 import Noticias from "./Pages/Noticias";
 import Loging from "./Pages/Loging/Index";
-import Ubicacion from "./Pages/Ubicacion/Index.jsx";
+import Nosotros from "./Pages/Nosotros/Index.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -18,7 +18,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/Contacto" element={<Contacto/>} />
         <Route path="/Noticias" element={<Noticias/>} />
         <Route path="Loging" element={<Loging/>}/>
-        <Route path="Ubicacion" element={<Ubicacion/>}/>
+        <Route path="Nosotros" element={<Nosotros/>}/>
       </Routes>
     </BrowserRouter>
   </StrictMode>

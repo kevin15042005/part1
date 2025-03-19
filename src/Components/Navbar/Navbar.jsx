@@ -27,8 +27,8 @@ const Navbar = () => {
             <img src={Logo} className="navLogo" alt="" />
           </div>
           <li>
-            <Link to="/Ubicacion" className="colorTexto">
-              Ubicacion
+            <Link to="/Nosotros" className="colorTexto">
+              Nosotros
             </Link>
           </li>
           <li>

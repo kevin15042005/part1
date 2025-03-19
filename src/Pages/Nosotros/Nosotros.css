@@ -1,0 +1,33 @@
+.InformacioNosotros {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0e222ebd;
+}
+.InformacioNosotros h2 {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: Poopin, sans-serif;
+  color: #fff;
+}
+
+.Ubicacion {
+  max-width: 45%;
+  margin: 20px auto;
+  background-color: rgba(4, 75, 111, 0.881);
+  box-shadow: 2px 2px 12px rgba(174, 172, 172, 0.5);
+  transition: transform 0.5s cubic-bezier(0.25, 0.9, 0.25, 1);
+  border-radius: 10px;
+  text-align: center;
+}
+.Ubicacion:hover {
+  transform: translateY(-5px);
+  box-shadow: 2px 2px 12px rgba(174, 172, 172, 0.5);
+}
+.ubicacionMaps{
+    padding: 20px;
+}
+.ubicacionMaps iframe{
+    border-radius: 20px;
+
+}

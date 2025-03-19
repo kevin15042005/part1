@@ -1,9 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../../Components/layout";
 import Footer from "../../Components/Footer/footer";
+import "./Loging.css";
+
 export default function Loging() {
-  const [currentForm, setCurrentForm] = useState("loging");
-  const [showPassword, setShowPassword] = useState(false)
+  const [currentForm, setCurrentForm] = useState(() => {
+    return localStorage.getItem("currentForm") || "loging";
+  });
+  const [showPassword, setShowPassword] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("currentForm", currentForm);
+  }, [currentForm]);
+
   return (
     <>
       <div id="main-container">
@@ -19,7 +28,7 @@ export default function Loging() {
                     <input
                       type="text"
                       className="field"
-                      placeholder="Ingresa tu usuario"
+                      placeholder="Email"
                       name="usuario"
                       required
                     />
@@ -27,38 +36,52 @@ export default function Loging() {
                   <div className="input-box">
                     <label>Contraseña</label>
                     <input
-                      type={showPassword ? "text": "password"}
+                      type={showPassword ? "text" : "password"}
                       className="field"
-                      placeholder="Ingresa tu Contraseña"
+                      placeholder="Password"
                       name="contraseña"
                       required
                     />
                     <div className="input-check">
-                      <input type="checkbox" 
-                      onChange={()=>setShowPassword(!showPassword)}
+                      <input
+                        type="checkbox"
+                        onChange={() => setShowPassword(!showPassword)}
                       />
-
                     </div>
                     <p>{}</p>
                   </div>
-                  <button type="submit">Ingresar</button>
-                  <a href="#" onClick={() => setCurrentForm("forgotPassword")}>
-                    Olvide mi contraseña
-                  </a>
-                  <div className="NewUsuario">
-                    Nuevo Aqui?{" "}
-                    <a href="#" onClick={() => setCurrentForm("register")}>
-                      Registrarse
-                    </a>
+                  <div className="button-ingresar">
+                    <button type="submit" className="ingresarButton">
+                      Ingresar
+                    </button>
+                    <div className="usuarioNewRegister">
+                      <a
+                        className="linkOlvidarContraseña"
+                        href="#"
+                        onClick={() => setCurrentForm("forgotPassword")}
+                      >
+                        Olvide mi contraseña
+                      </a>
+                    </div>
+                    <div className="NewUsuario">
+                      Nuevo Aqui?{" "}
+                      <a href="#" onClick={() => setCurrentForm("register")}>
+                        Registrarse
+                      </a>
+                    </div>
                   </div>
                 </form>
               )}
             </section>
           </div>
-          <div className="main-register">
-            <section>
+        </main>
+        <main className="formulararioPrincipal">
+          <div className="Menu-Register">
+            <section className="nombreUsuario">
               {currentForm === "register" && (
                 <form>
+                  <h2>Registro</h2>
+
                   <div className="input-box">
                     <label>Registrarse</label>
                     <input
@@ -72,33 +95,44 @@ export default function Loging() {
                   <div className="input-box">
                     <label>Contraseña</label>
                     <input
-                      type={showPassword?"text":"password"}
+                      type={showPassword ? "text" : "password"}
                       className="field"
                       name="newPassword"
                       placeholder="Escribe tu contraseña"
                       required
                     />
                     <div className="input-check">
-                      <input type="checkbox"
-                      onChange={()=>setShowPassword(!showPassword)} />
+                      
                     </div>
                   </div>
-                  <button type="submit">Registrarse</button>
-                  <a href="#" onClick={() => setCurrentForm("loging")}>
-                    Volver al inicio de sesión
-                  </a>
+                  <div className="button-contraseña">
+                    <button type="submit" className="registerButton">
+                      Registrar
+                    </button>
+                  </div>
+                  <div className="VolverInicio">
+                    <button
+                      type="button"
+                      onClick={() => setCurrentForm("loging")}
+                    >
+                      Volver al inicio de sesión
+                    </button>
+                  </div>
                 </form>
               )}
             </section>
           </div>
-          <div className="OlvidePassword">
-            <section>
+        </main>
+        <main className="formulararioPrincipalOlvidar">
+          <div className="Menu-Password">
+            <section className="nombreUsuario">
               {currentForm === "forgotPassword" && (
                 <form>
+                  <h2>Olvidar Contraseña</h2>
                   <div className="input-box">
                     <label>Olvide Contraseña</label>
                     <input
-                      type={showPassword?"text":"password"}
+                      type={showPassword ? "text" : "password"}
                       className="field"
                       placeholder="Ingrese su antigua contraseña"
                       name="forgetPassword"
@@ -108,22 +142,32 @@ export default function Loging() {
                   <div className="input-box">
                     <label>Nueva Contraseña</label>
                     <input
-                      type={showPassword?"text":"password"}
+                      type={showPassword ? "text" : "password"}
                       className="field"
                       placeholder="Ingresa tu nueva contraseña"
                       name="newPassword"
                       required
                     />
                     <div className="input-check">
-                      <input type="checkbox" 
-                      onChange={()=>setShowPassword(!showPassword)}/>
-
+                      <input
+                        type="checkbox"
+                        onChange={() => setShowPassword(!showPassword)}
+                      />
                     </div>
                   </div>
-                  <button type="submit">Recuperar</button>
-                  <a href="#" onClick={() => setCurrentForm("loging")}>
-                    Volver al inicio de sesión
-                  </a>
+                  <div className="button-contraseña">
+                    <button type="submit" className="registerButton">
+                      Cambiar Contraseña
+                    </button>
+                  </div>
+                  <div className="VolverInicio">
+                    <button
+                      type="button"
+                      onClick={() => setCurrentForm("loging")}
+                    >
+                      Volver al inicio de sesión
+                    </button>
+                  </div>
                 </form>
               )}
             </section>
