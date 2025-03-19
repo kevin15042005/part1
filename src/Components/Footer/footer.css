@@ -1,15 +1,15 @@
 .Footer{
-  background-color: #ff2;
+  background-color: #040b1f;
   border-radius: 10px;
-  border-color: yellow;
   padding: 5px;
+  height: 100%;
+  color: #fff;
 }
 .nav-footer {
   font-family: Arial, Helvetica, sans-serif;
   display: grid; /* Usamos grid para crear columnas */
   grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
   gap: 20px; /* Espacio entre los elementos */
-  padding: 20px;
  
 }
 
@@ -25,7 +25,10 @@
   justify-content: center;
 }
 .nav-footer .nav-link:hover {
-  color: rgb(34, 122, 255);  /* Cambia solo el color de las letras al hacer hover */
+  color: rgb(55, 75, 104);  /* Cambia solo el color de las letras al hacer hover */
+}
+.nav-footer .nav-link{
+  color: #fff;
 }
 
 .footer-nav{

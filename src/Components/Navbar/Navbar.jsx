@@ -5,36 +5,53 @@ import Logo from "../../assets/LogoPrincipal.jpg";
 const Navbar = () => {
   return (
     <>
-    <div>
-      
-    </div>
-    <div className="nav">
-      <ul className="nav-menu">
-        <li>
-          <Link to="/" className="colorTexto">Inicio</Link> 
-        </li>
-        <li>
-          <Link to="/pintura" className="colorTexto">Pintura</Link>
-        </li>
-        <div className="nav-logo"><img src={Logo} className="navLogo" alt="" /></div>
+      <div></div>
+      <div className="nav">
+        <ul className="nav-menu">
+          <li>
+            <Link to="/" className="colorTexto">
+              Inicio
+            </Link>
+          </li>
+          <li>
+            <Link to="/pintura" className="colorTexto">
+              Pintura
+            </Link>
+          </li>
+          <li>
+            <Link to="/noticias" className="colorTexto">
+              Noticias
+            </Link>
+          </li>
+          <div className="nav-logo">
+            <img src={Logo} className="navLogo" alt="" />
+          </div>
+          <li>
+            <Link to="/Ubicacion" className="colorTexto">
+              Ubicacion
+            </Link>
+          </li>
+          <li>
+            <Link to="/Contacto" className="colorTexto">
+              Contacto
+            </Link>
+          </li>
 
-        <li>
-          <Link to="/contacto" className="colorTexto">Contacto</Link>
-        </li>
-        <li>
-          <Link to="/noticias" className="colorTexto">Noticias</Link>
-        </li>
-        {/* <li>
+          <li>
+            <Link to="/loging" className="colorTexto">
+              Ingreso
+            </Link>
+          </li>
+          {/* <li>
           <Link to="/nosotros">Nosotros</Link>
         </li> */}
-        {/* <li className="nav-contact">
+          {/* <li className="nav-contact">
           <Link to="/login">Login</Link>
         </li> */}
-      </ul>
-    </div>
+        </ul>
+      </div>
     </>
   );
 };
 
 export default Navbar;
-

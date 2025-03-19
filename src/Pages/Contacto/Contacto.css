@@ -1,4 +1,194 @@
-body{
-    height: 100%;
+.contacto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #003c61;
+  border-radius: 25px;
+}
+form {
+  max-width: 600px;
+  width: 100%;
+  background: #014671;
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  margin: 25px;
+  padding: 0px 28px 11px 25px;
+}
+form h2 {
+  font-size: 30px;
+  text-align: center;
+}
+form .input-box {
+  margin-top: 20px;
+}
+.input-box .field {
+  width: 100%;
+  height: 50px;
+  background-color: transparent;
+  border: 2px solid #0498f4;
+  outline: none;
+  border-radius: 6px;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.input-box .field.mess{
+    height: 200px;
+    resize: none;
+} 
+.field{
+    color: #fff;
+}
+
+.field::placeholder {
+    color: #fff;  /* Cambia el color del texto del placeholder a blanco */
+    opacity: 1;  /* Asegura que el color sea completamente visible */
+}
+form button{
     width: 100%;
+    height: 55px;
+    background: #016eb2;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 0 10 rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 83px;
+    transition: 0.9s;
+}
+
+form button:hover{
+    background: #00131f;
+    border: #003c61;
+}
+.Infromacion2{
+ 
+     flex:1;
+    max-width: 45%;
+    background-color: #333;
+    padding: 20px;
+    box-shadow: 0 0 10 rgba(0, 0, 0, 0.1);
+    color: #fff;
+    border-radius: 25px;
+}
+
+.Infromacion2 .content {
+  background: #404040; /* Fondo blanco */
+  padding: 8px;
+  border-radius: 25px;
+  color: #333; /* Color del texto */
+  border: none; /* Borde azul */
+}
+.content h1{
+    color: #fff;
+}
+
+.Infromacion2 h1{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 30px;
+    
+}
+.Informacion-Contacto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+    font-family: Pooppins , sans-serif;
+    padding: 25px;
+    height: 10rem;
+
+}
+.Informacion-Contacto a{
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.redes-sociales{
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 10px;
+}
+.Informacion {
+    display: flex; 
+    justify-content: space-between; 
+    padding: 20px;
+    border-radius: 20px;
+  }
+  .InformacionCorreo{
+    flex: 1;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .correo{
+    padding: 7rem;
+    font-size: 25px;
+}
+.correo:hover{
+    color: #009dff;
+}
+.telefono:hover{
+color: #049fff;
+}
+
+.RedireccionChat button{
+    width: 100%;
+    height: 55px;
+    background: #016eb2;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 0 10 rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 55px;
+    transition: 0.9s;
+}
+.RedireccionChat button:hover{
+    background: #00131f;
+    border: #003c61;
+}
+
+
+.email-button{
+    width: 100%;
+    height: 55px;
+    background: #016eb2;
+    box-shadow: 0 0 10 rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    color: #fff;
+    transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+
+}
+.email-button:hover{
+    background: #00385b;
+    border: #003c61;
+
+}
+
+.telefono-button{
+    width: 100%;
+    height: 55px;
+    background: #016eb2;
+    box-shadow: 0 0 10 rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    color: #fff;
+    transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+
+}
+.telefono-button:hover{
+    background: #00385b;
+    border: #003c61;
+
 }

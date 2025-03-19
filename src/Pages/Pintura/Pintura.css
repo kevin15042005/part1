@@ -1,0 +1,9 @@
+.Menu-Pintura h1 {
+  height: 10rem;
+}
+.Informacion-Pintura h3{
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}

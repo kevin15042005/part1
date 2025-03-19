@@ -17,7 +17,6 @@ gap:20px
     align-items: center;
     list-style: none;
     gap: 90px;
-    text-decoration: underline;
 }
 
 .navLogo{
@@ -36,6 +35,8 @@ color:rgba(red, green, blue, alpha)
 .colorTexto{
     color: white;
     list-style: none;
+    text-decoration: none;
+    
 }
 .nav-menu .ColoresFondo{
     list-style: none;
