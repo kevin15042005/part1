@@ -31,3 +31,12 @@
     border-radius: 20px;
 
 }
+.contenedor-horaario-ubicaicon{
+  display: flex;
+  justify-content: space-around;
+  gap:20px;
+}
+
+Horario{
+  padding: 20px;
+}
