@@ -42,12 +42,23 @@ const Navbar = () => {
               Ingreso
             </Link>
           </li>
+          
           {/* <li>
           <Link to="/nosotros">Nosotros</Link>
         </li> */}
           {/* <li className="nav-contact">
           <Link to="/login">Login</Link>
         </li> */}
+         <li>
+            <Link to="/Administrador" className="colorTexto">
+              Administrador
+            </Link>
+          </li>
+          <li>
+            <Link to="/Pintura" className="colorTexto">
+              Crud
+            </Link>
+          </li>
         </ul>
       </div>
     </>

@@ -7,8 +7,9 @@ import Contacto from "./Pages/Contacto";
 import Pintura from "./Pages/Pintura";
 import Noticias from "./Pages/Noticias";
 import Loging from "./Pages/Loging/Index";
-import Nosotros from "./Pages/Nosotros/Index.jsx";
-
+import Nosotros from "./Pages/Nosotros/Index";
+import Administrador from "./Pages/Noticias1/index"
+import Pintura from "./Pages/Crud_noticias/index"
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
@@ -19,6 +20,8 @@ createRoot(document.getElementById("root")).render(
         <Route path="/Noticias" element={<Noticias/>} />
         <Route path="Loging" element={<Loging/>}/>
         <Route path="Nosotros" element={<Nosotros/>}/>
+       < Route path="Administrador" element={<Administrador/>}/>
+       <Route path="Pintura" element={<Pintura/>}/>
       </Routes>
     </BrowserRouter>
   </StrictMode>
