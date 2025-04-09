@@ -3,12 +3,12 @@ import Layout from "../../Components/layout";
 import Footer from "../../Components/Footer/footer";
 import "./Pintura.css";
 export default function Pintura() {
-  const [noticias, setNoticias] = useState([]);
+  const [noticiasPintura, setNoticiasPintura] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/noticias")
+    fetch("http://localhost:8080/noticiaspintura")
       .then((res) => res.json())
-      .then((data) => setNoticias(data))
+      .then((data) => setNoticiasPintura(data))
       .catch((err) => console.log(err));
   }, []);
   return (
@@ -16,7 +16,7 @@ export default function Pintura() {
       <div id="main-container">
         <Layout />
         <div className="Informacion-Pintura">
-          <h3 className="Informacion-Pintura-H3">
+          <h3 className="Informacion-Pintura">
             Veremos la informacion relevante que diseños de pinutras se han
             creados{" "}
           </h3>
@@ -29,17 +29,16 @@ export default function Pintura() {
           <div className="Contenedor-principal">
             <label htmlFor="">Contenedor 1</label>
             <div className="Contenedor-1">
-              {noticias.map((noticia) => (
-                <div key={noticia.id_Noticia}>
-                  <h2>{noticia.nombre_Noticias}</h2>
-                  <p>{noticia.contenido_Noticia}</p>
+              {noticiasPintura.map((noticia) => (
+                <div key={noticia.id_Noticias_Pintura}>
+                  <h2>{noticia.nombre_Noticia_Pintura}</h2>
+                  <p>{noticia.contenido_Noticia_Pintura}</p>
                   {noticia.cover && (
-                   <img
-                   src={`http://localhost:8080/uploads/${noticia.cover}`}
-                   alt={noticia.nombre_Noticias}
-                   className="imagen"
-                 />
-                 
+                    <img
+                      src={`http://localhost:8080/uploads/${noticia.cover}`}
+                      alt={noticia.nombre_Noticia_Pintura}
+                      className="imagen"
+                    />
                   )}
                 </div>
               ))}

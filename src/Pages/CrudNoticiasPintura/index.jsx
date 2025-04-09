@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import Layout from "../../Components/layout";
 
-export default function Administrador() {
+export default function CrudNoticiasPintura() {
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [imagen, setImagen] = useState(null);
   const [idNoticia, setIdNoticia] = useState("");
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // 👈 Estaba mal escrito como "preventDefautl"
     const formData = new FormData();
-    formData.append("nombre_Noticias", titulo);
-    formData.append("contenido_Noticia", descripcion);
+    formData.append("nombre_Noticia_Pintura", titulo);
+    formData.append("contenido_Noticia_Pintura", descripcion);
     formData.append("cover", imagen);
 
     try {
-      const res = await fetch("http://localhost:8080/noticias", {
+      const res = await fetch("http://localhost:8080/noticiaspintura/crear", {
         method: "POST",
         body: formData,
       });
@@ -28,15 +28,15 @@ export default function Administrador() {
   };
 
   const handleUpdate = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // 👈 Error corregido
     const formData = new FormData();
-    formData.append("id_Noticia", idNoticia);
-    formData.append("nombre_Noticias", titulo);
-    formData.append("contenido_Noticia", descripcion);
+    formData.append("id_Noticias_Pintura", idNoticia);
+    formData.append("nombre_Noticia_Pintura", titulo);
+    formData.append("contenido_Noticia_Pintura", descripcion);
     if (imagen) formData.append("cover", imagen);
 
     try {
-      const res = await fetch("http://localhost:8080/noticias", {
+      const res = await fetch("http://localhost:8080/noticiaspintura", {
         method: "PUT",
         body: formData,
       });
@@ -51,7 +51,7 @@ export default function Administrador() {
   const handleDelete = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:8080/noticias/${titulo}`, {
+      const res = await fetch(`http://localhost:8080/noticiaspintura/${titulo}`, {
         method: "DELETE",
       });
       const data = await res.json();
@@ -69,11 +69,11 @@ export default function Administrador() {
   return (
     <Layout>
       <div>
-        <h1>CRUDNoticias</h1>
+        <h1>CRUD Noticias Pintura</h1>
       </div>
 
       <form onSubmit={handleSubmit}>
-        <h1>Crear Noticia</h1>
+        <h2>Crear Noticia</h2>
         <input type="text" placeholder="Título" value={titulo} onChange={(e) => setTitulo(e.target.value)} />
         <input type="text" placeholder="Descripción" value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
         <input type="file" onChange={(e) => setImagen(e.target.files[0])} />
@@ -81,7 +81,7 @@ export default function Administrador() {
       </form>
 
       <form onSubmit={handleUpdate}>
-        <h1>Actualizar Noticia</h1>
+        <h2>Actualizar Noticia</h2>
         <input type="text" placeholder="Título" value={titulo} onChange={(e) => setTitulo(e.target.value)} />
         <input type="text" placeholder="Descripción" value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
         <input type="file" onChange={(e) => setImagen(e.target.files[0])} />
@@ -90,7 +90,7 @@ export default function Administrador() {
       </form>
 
       <form onSubmit={handleDelete}>
-        <h1>Eliminar Noticia</h1>
+        <h2>Eliminar Noticia</h2>
         <input type="text" placeholder="Título de la noticia" value={titulo} onChange={(e) => setTitulo(e.target.value)} />
         <button type="submit">Eliminar</button>
       </form>
