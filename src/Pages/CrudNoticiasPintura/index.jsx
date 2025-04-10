@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../../Components/layout";
 
 export default function CrudNoticiasPintura() {
@@ -6,10 +6,38 @@ export default function CrudNoticiasPintura() {
   const [descripcion, setDescripcion] = useState("");
   const [imagen, setImagen] = useState(null);
   const [idNoticia, setIdNoticia] = useState("");
+  const [noticiasPublicadas , setNoticiasPublicadas]= useState(0);
+
+
+  //Limpiar los campos
+ const  limpiarCampos=()=>{
+  setTitulo("");
+  setDescripcion("");
+  setImagen(null);
+  setIdNoticia("");
+  }
+
+
+  useEffect(()=>{
+    const obtenerNoticias = async ()=>{
+      try{
+        const res = await fetch("http://localhost:8080/noticiaspintura/crear");
+        const data = await res.json();
+        setNoticiasPublicadas(data.length)
+      }catch(err){
+        console.error("Error al obtener noticias",err);
+      }
+    } 
+    obtenerNoticias();
+   })
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // 👈 Estaba mal escrito como "preventDefautl"
     const formData = new FormData();
+    if(noticiasPublicadas>=5){
+      alert("Llegaste a el limite de la publicaicones")
+      return;
+    }
     formData.append("nombre_Noticia_Pintura", titulo);
     formData.append("contenido_Noticia_Pintura", descripcion);
     formData.append("cover", imagen);
@@ -21,6 +49,8 @@ export default function CrudNoticiasPintura() {
       });
       const data = await res.json();
       alert(data.message || "Noticia creada");
+      limpiarCampos();
+      setNoticiasPublicadas(noticiasPublicadas+1);
     } catch (err) {
       console.error(err);
       alert("Error al crear la noticia");
@@ -42,6 +72,7 @@ export default function CrudNoticiasPintura() {
       });
       const data = await res.json();
       alert(data.message || "Noticia actualizada");
+      limpiarCampos();
     } catch (err) {
       console.error(err);
       alert("Error al actualizar la noticia");
@@ -56,10 +87,7 @@ export default function CrudNoticiasPintura() {
       });
       const data = await res.json();
       alert(data.message || "Noticia eliminada");
-      setTitulo("");
-      setDescripcion("");
-      setImagen(null);
-      setIdNoticia("");
+      limpiarCampos();
     } catch (err) {
       console.error(err);
       alert("Error al eliminar la noticia");

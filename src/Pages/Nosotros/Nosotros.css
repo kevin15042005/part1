@@ -2,19 +2,71 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #0e222ebd;
+  background-color: #05456bbd;
 }
 .InformacioNosotros h2 {
   font-size: 30px;
   font-weight: bold;
   font-family: Poopin, sans-serif;
   color: #fff;
+  display: flex;
+  justify-content: center;
+}
+.MisionP,
+.ObjetivoP {
+  max-width: 60%;
+  margin: 20px auto;
+  background-color: rgba(4, 75, 111, 0.881);
+  box-shadow: 2px 2px 12px rgba(174, 172, 172, 0.5);
+  color: #000000;
+  padding: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  border-radius: 25px;
+  opacity: 0;
+  animation: aparecerDesdeIzquierda 1.2s ease-out forwards;
+}
+
+@keyframes aparecerDesdeIzquierda {
+  from {
+    transform: translateX(-60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.VisionP {
+  max-width: 60%;
+  margin: 20px auto;
+  background-color: rgba(4, 75, 111, 0.881);
+  box-shadow: 2px 2px 12px rgba(174, 172, 172, 0.5);
+  color: #000000;
+  padding: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  border-radius: 25px;
+  opacity: 0;
+  animation: aparecerDesdeDerecha 1.2s ease-out forwards;
+}
+
+@keyframes aparecerDesdeDerecha {
+  from {
+    transform: translateX(60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .Ubicacion {
   max-width: 45%;
   margin: 20px auto;
-  background-color: rgba(4, 75, 111, 0.881);
+  background-color: rgba(2, 108, 161, 0.881);
   box-shadow: 2px 2px 12px rgba(174, 172, 172, 0.5);
   transition: transform 0.5s cubic-bezier(0.25, 0.9, 0.25, 1);
   border-radius: 10px;
@@ -37,6 +89,12 @@
   gap:20px;
 }
 
-Horario{
-  padding: 20px;
+.Horario  h2{
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.Horario  p{
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
 }

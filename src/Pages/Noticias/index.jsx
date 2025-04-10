@@ -1,4 +1,4 @@
-import React ,{useState,useEffect}from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../../Components/layout";
 import Footer from "../../Components/Footer/footer";
 import "./noticias.css";
@@ -11,9 +11,9 @@ export default function Noticias() {
       .then((data) => setNoticias(data))
       .catch((err) => console.log(err));
   }, []);
-  return(
-      <>
-       <div id="main-container">
+  return (
+    <>
+      <div id="main-container">
         <Layout />
         <div className="Informacion-Noticia">
           <h3 className="Informacion-Noticia-H3">
@@ -28,28 +28,27 @@ export default function Noticias() {
         <div className="Container-Noticia">
           <div className="Contenedor-principal">
             <label htmlFor="">Contenedor 1</label>
-            <div className="Contenedor-1">
+            <ul className="grid-container-noticias">
               {noticias.map((noticia) => (
-                <div key={noticia.id_Noticia}>
+                <li key={noticia.id_Noticia} className="grid-item-noticias">
                   <h2>{noticia.nombre_Noticias}</h2>
                   <p>{noticia.contenido_Noticia}</p>
                   {noticia.cover && (
-                   <img
-                   src={`http://localhost:8080/uploads/${noticia.cover}`}
-                   alt={noticia.nombre_Noticias}
-                   className="imagen"
-                 />
-                 
+                    <img
+                      src={`http://localhost:8080/uploads/${noticia.cover}`}
+                      alt={noticia.nombre_Noticias}
+                      className="imagen"
+                    />
                   )}
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
         <footer>
           <Footer />
         </footer>
       </div>
-      </>
-    );
-  }
+    </>
+  );
+}

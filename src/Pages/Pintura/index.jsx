@@ -28,9 +28,9 @@ export default function Pintura() {
         <div className="Container-Pintura">
           <div className="Contenedor-principal">
             <label htmlFor="">Contenedor 1</label>
-            <div className="Contenedor-1">
+            <ul className="grid-container-pintura">
               {noticiasPintura.map((noticia) => (
-                <div key={noticia.id_Noticias_Pintura}>
+                <li key={noticia.id_Noticias_Pintura} className="grid-item-pintura">
                   <h2>{noticia.nombre_Noticia_Pintura}</h2>
                   <p>{noticia.contenido_Noticia_Pintura}</p>
                   {noticia.cover && (
@@ -40,9 +40,9 @@ export default function Pintura() {
                       className="imagen"
                     />
                   )}
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
         <footer>

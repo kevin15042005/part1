@@ -10,22 +10,45 @@ export default function Ubicacion() {
         <div className="InformacioNosotros">
           <div className="Menu-Mision">
             <h2>Mision</h2>
-            <p>efdffffff</p>
+            <p className="MisionP activo">
+              DUART-STUDIO es una microempresa especializada en la
+              personalización y pintura de motocicletas, ofreciendo diseños
+              exclusivos y personalizados para cada cliente.Este sitio web
+              permitirá a DUART-STUDIO no solo promocionar sus productos de
+              manera eficiente, fortalecer su presencia en un entorno digital,
+              mejorar la experiencia del usuario y potenciar sus oportunidades
+              de comercialización de personalización y pintura en la ciudad de
+              Bogotá en el año 2025, con la finalidad de satisfacer al cliente.{" "}
+            </p>
           </div>
           <div className="Menu-Vision">
             <h2>Vision</h2>
-            <p>cscs</p>
+            <p className="VisionP activo">
+              Consolidarnos en Bogotá en el año 2026-1 con mayor relevancia en
+              el mercado, tanto en la personalización de motos como en
+              accesorios de motocicletas, incluyendo textiles. Aspiramos a
+              lograr un gran posicionamiento en el sector de la personalización
+              y pintura, integrando soluciones digitales que impulsen nuestro
+              crecimiento y mejoren la relación con los clientes y los servicios
+              ofrecidos.{" "}
+            </p>
           </div>
           <div className="Menu-Obejtivo">
             <h2>Objetivos</h2>
-            <p>innxsx</p>
+            <p className="ObjetivoP activo">
+              Objetivo General. Desarrollar una página web que permita el
+              aumento de la visibilidad, promoción y accesibilidad a los
+              servicios ofrecidos en el taller de pintura para motocicletas de
+              Duart-Studio, integrando futuras funcionalidades que fortalezcan
+              la relación con el cliente en el año 2025.{" "}
+            </p>
           </div>
           <div className="Ubicacion">
             <p>
               Nos encontramos ubicados en la ciudad Bogota D.C Colombia
-              nosestablecimos aqui por el gran comercio y inspiracion a la gran
-              mayoria de motos ya que es una de las ciudades con mayor cantidad
-              de motos{" "}
+              nos establecimos aqui por el gran comercio e inspiracion a la gran
+              mayoria de motocilcetas  es una de las ciudades con mayor cantidad
+              de motos en Colombia{" "}
             </p>
           </div>
           <div className="contenedor-horaario-ubicaicon">
