@@ -25,12 +25,12 @@ function App() {
           </p>
         </div>
 
-        <div className="Introdccuion_Duart">
+        <div className="Introduccion_Duart">
           <p>
             {" "}
             <h3>
-              Disfruta de este agradable video donde veras lo que tenemos para
-              ti
+              Disfruta de este agradable video donde veras lo que 
+              tenemos para ti
             </h3>
           </p>
           <iframe

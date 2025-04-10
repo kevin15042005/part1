@@ -84,7 +84,7 @@ export default function Shop() {
   const handleDelete = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:8080/Shop/${titulo}`, {
+      const res = await fetch(`http://localhost:8080/Shop/${id_Shop}`, {
         method: "DELETE",
       });
       const data = await res.json();
@@ -161,8 +161,8 @@ export default function Shop() {
         <input
           type="text"
           placeholder="Título de la noticia"
-          value={titulo}
-          onChange={(e) => setTitulo(e.target.value)}
+          value={id_Shop}
+          onChange={(e) => setIdShop(e.target.value)}
         />
         <button type="submit">Eliminar</button>
       </form>

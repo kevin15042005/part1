@@ -21,7 +21,7 @@ export default function CrudNoticiasPintura() {
   useEffect(()=>{
     const obtenerNoticias = async ()=>{
       try{
-        const res = await fetch("http://localhost:8080/noticiaspintura/crear");
+        const res = await fetch("http://localhost:8080/noticiaspintura");
         const data = await res.json();
         setNoticiasPublicadas(data.length)
       }catch(err){
@@ -29,7 +29,7 @@ export default function CrudNoticiasPintura() {
       }
     } 
     obtenerNoticias();
-   })
+   },[])
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // 👈 Estaba mal escrito como "preventDefautl"
@@ -42,6 +42,8 @@ export default function CrudNoticiasPintura() {
     formData.append("contenido_Noticia_Pintura", descripcion);
     formData.append("cover", imagen);
 
+
+    //Subir Noticias
     try {
       const res = await fetch("http://localhost:8080/noticiaspintura/crear", {
         method: "POST",
@@ -56,7 +58,7 @@ export default function CrudNoticiasPintura() {
       alert("Error al crear la noticia");
     }
   };
-
+//Actualizar Noticias
   const handleUpdate = async (e) => {
     e.preventDefault(); // 👈 Error corregido
     const formData = new FormData();
@@ -78,11 +80,11 @@ export default function CrudNoticiasPintura() {
       alert("Error al actualizar la noticia");
     }
   };
-
+//Eliminar Noticias
   const handleDelete = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:8080/noticiaspintura/${titulo}`, {
+      const res = await fetch(`http://localhost:8080/noticiaspintura/${idNoticia}`, {
         method: "DELETE",
       });
       const data = await res.json();
@@ -119,7 +121,7 @@ export default function CrudNoticiasPintura() {
 
       <form onSubmit={handleDelete}>
         <h2>Eliminar Noticia</h2>
-        <input type="text" placeholder="Título de la noticia" value={titulo} onChange={(e) => setTitulo(e.target.value)} />
+        <input type="text" placeholder="Id" value={idNoticia} onChange={(e) => setIdNoticia(e.target.value)} />
         <button type="submit">Eliminar</button>
       </form>
     </Layout>

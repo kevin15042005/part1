@@ -55,18 +55,18 @@ router.put("/", upload.single("cover"), (req, res) => {
 });
 
 // Eliminar noticia por título
-router.delete("/:titulo", (req, res) => {
-  const nombre_Noticias = req.params.titulo;
-  const getImageQuery = `SELECT cover FROM noticias WHERE nombre_Noticias = ?`;
+router.delete("/:id_Noticia", (req, res) => {
+  const id_Noticia = req.params.id_Noticia;
+  const getImageQuery = `SELECT cover FROM noticias WHERE id_Noticia = ?`;
 
-  db.query(getImageQuery, [nombre_Noticias], (err, results) => {
+  db.query(getImageQuery, [id_Noticia], (err, results) => {
     if (err) return res.status(500).json({ error: "Error buscando imagen" });
     if (!results.length) return res.status(404).json({ message: "❌ Noticia no encontrada" });
 
     const imagen = results[0].cover;
-    const deleteQuery = `DELETE FROM noticias WHERE nombre_Noticias=?`;
+    const deleteQuery = `DELETE FROM noticias WHERE id_Noticia=?`;
 
-    db.query(deleteQuery, [nombre_Noticias], (err) => {
+    db.query(deleteQuery, [id_Noticia], (err) => {
       if (err) return res.status(500).json({ error: "Error al eliminar noticia" });
       if (imagen) fs.unlink(`uploads/${imagen}`, () => {});
       return res.json({ message: "✅ Noticia eliminada correctamente" });

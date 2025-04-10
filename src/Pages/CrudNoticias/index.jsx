@@ -61,7 +61,7 @@ export default function CrudNoticias() {
       alert("Error al crear la noticia");
     }
   };
-
+//Actualizar Noticia
   const handleUpdate = async (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -83,11 +83,11 @@ export default function CrudNoticias() {
       alert("Error al actualizar la noticia");
     }
   };
-
+//Eliminar Noticia
   const handleDelete = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:8080/noticias/${titulo}`, {
+      const res = await fetch(`http://localhost:8080/noticias/${idNoticia}`, {
         method: "DELETE",
       });
       const data = await res.json();
@@ -151,9 +151,9 @@ export default function CrudNoticias() {
         <h1>Eliminar Noticia</h1>
         <input
           type="text"
-          placeholder="Título de la noticia"
-          value={titulo}
-          onChange={(e) => setTitulo(e.target.value)}
+          placeholder="Id a eliminar"
+          value={idNoticia}
+          onChange={(e) => setIdNoticia(e.target.value)}
         />
         <button type="submit">Eliminar</button>
       </form>

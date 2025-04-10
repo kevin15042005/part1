@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../../Components/layout";
 import Footer from "../../Components/Footer/footer";
-import "./noticias.css";
+import "./Noticias.css";
 export default function Noticias() {
   const [noticias, setNoticias] = useState([]);
 
@@ -15,34 +15,33 @@ export default function Noticias() {
     <>
       <div id="main-container">
         <Layout />
-        <div className="Informacion-Noticia">
-          <h3 className="Informacion-Noticia-H3">
-            Veremos la informacion relevante que diseños de pinutras se han
-            creados{" "}
-          </h3>
-          <p className="Informacion-Noticia-P">
-            Aca veremos reflejado que dieseños hemos creado asi que disfruta de
-            esta maravillosa motos diseñadas con la pasion de Duart-Studio{" "}
-          </p>
-        </div>
-        <div className="Container-Noticia">
-          <div className="Contenedor-principal">
-            <label htmlFor="">Contenedor 1</label>
-            <ul className="grid-container-noticias">
-              {noticias.map((noticia) => (
-                <li key={noticia.id_Noticia} className="grid-item-noticias">
-                  <h2>{noticia.nombre_Noticias}</h2>
-                  <p>{noticia.contenido_Noticia}</p>
-                  {noticia.cover && (
-                    <img
-                      src={`http://localhost:8080/uploads/${noticia.cover}`}
-                      alt={noticia.nombre_Noticias}
-                      className="imagen"
-                    />
-                  )}
-                </li>
-              ))}
-            </ul>
+        <div className="Menu-Principal-Noticias">
+          <div className="Informacion-Noticia">
+            <h3>Noticias relevante o eventos en los proximos dias </h3>
+            <p>
+              No te pierdas los detalles respecto sobre los siguientes eventos{" "}
+            </p>
+          </div>
+          <div className="Container-Noticia">
+            <div className="Contenedor-principal">
+              <label htmlFor="">Pinturas</label>
+              <ul className="grid-container-noticias">
+                {noticias.map((noticia) => (
+                  <li key={noticia.id_Noticia} className="grid-item-noticias">
+                    <h2>{noticia.nombre_Noticias}</h2>
+                    <p>{noticia.contenido_Noticia}</p>
+                    {noticia.cover && (
+                      <img
+                        src={`http://localhost:8080/uploads/${noticia.cover}`}
+                        alt={noticia.nombre_Noticias}
+                        className="imagen"
+                      />
+                    )}
+                    <span className="num-Id">{noticia.id_Noticia} </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
         <footer>

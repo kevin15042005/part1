@@ -58,28 +58,26 @@ router.put("/", upload.single("cover"), (req, res) => {
       return res.status(500).json({ error: "Error al actualizar articulo" });
     return res.json({ message: "✅ Artículo actualizado correctamente" });
 
-    if (result.affectedRows === 0)
-      return res.status(404).json({ message: "❌ Articulo no encontrado" });
   });
   
 });
 
 //Eliminar articulos
 
-router.delete("/:titulo", (req, res) => {
-  const nombre_Shop = req.params.titulo;
-  const getImageQuery = `SELECT cover FROM Shop WHERE nombre_Shop = ?`;
+router.delete("/:id_Shop", (req, res) => {
+  const id_Shop = req.params.id_Shop;
+  const getImageQuery = `SELECT cover FROM Shop WHERE id_Shop = ?`;
 
-  db.query(getImageQuery, [nombre_Shop], (err, result) => {
+  db.query(getImageQuery, [id_Shop], (err, result) => {
     if (err)
-      return res.status(500).json({ error: "Error al elimniar la imagen" });
+      return res.status(500).json({ error: "Error al eliminar la imagen" });
     if (!result.length)
       return res.status(404).json({ message: "❌ Articulo no encontrado" });
 
     const cover = result[0].cover;
-    const deleteQuery = `DELETE FROM Shop WHERE nombre_Shop = ?`;
+    const deleteQuery = `DELETE FROM Shop WHERE id_Shop = ?`;
 
-    db.query(deleteQuery, [nombre_Shop], (err) => {
+    db.query(deleteQuery, [id_Shop], (err) => {
       if (err)
         return res.status(500).json({ error: "Error al eliminar articulo" });
       if (cover) fs.unlink(`uploads/${cover}`, () => {});

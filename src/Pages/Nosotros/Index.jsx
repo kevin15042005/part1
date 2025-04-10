@@ -8,7 +8,7 @@ export default function Ubicacion() {
       <Layout />
       <div className="Menu-Ubicacion">
         <div className="InformacioNosotros">
-          <div className="Menu-Mision">
+          <section className="Menu-Mision">
             <h2>Mision</h2>
             <p className="MisionP activo">
               DUART-STUDIO es una microempresa especializada en la
@@ -20,8 +20,8 @@ export default function Ubicacion() {
               de comercialización de personalización y pintura en la ciudad de
               Bogotá en el año 2025, con la finalidad de satisfacer al cliente.{" "}
             </p>
-          </div>
-          <div className="Menu-Vision">
+          </section>
+          <section className="Menu-Vision">
             <h2>Vision</h2>
             <p className="VisionP activo">
               Consolidarnos en Bogotá en el año 2026-1 con mayor relevancia en
@@ -32,8 +32,8 @@ export default function Ubicacion() {
               crecimiento y mejoren la relación con los clientes y los servicios
               ofrecidos.{" "}
             </p>
-          </div>
-          <div className="Menu-Obejtivo">
+          </section>
+          <div className="Menu-Objetivo">
             <h2>Objetivos</h2>
             <p className="ObjetivoP activo">
               Objetivo General. Desarrollar una página web que permita el
@@ -43,15 +43,16 @@ export default function Ubicacion() {
               la relación con el cliente en el año 2025.{" "}
             </p>
           </div>
-          <div className="Ubicacion">
+          <section className="Ubicacion">
             <p>
-              Nos encontramos ubicados en la ciudad Bogota D.C Colombia
-              nos establecimos aqui por el gran comercio e inspiracion a la gran
-              mayoria de motocilcetas  es una de las ciudades con mayor cantidad
+              Nos encontramos ubicados en la ciudad Bogota D.C Colombia nos
+              establecimos aqui por el gran comercio e inspiracion a la gran
+              mayoria de motocilcetas es una de las ciudades con mayor cantidad
               de motos en Colombia{" "}
             </p>
-          </div>
-          <div className="contenedor-horaario-ubicaicon">
+          </section>
+
+          <div className="contenedor-horario-ubicaicon">
             <div className="Horario">
               <h2>Horario</h2>
               <p>De lunes a viernes de 8:00 am a 5:00 pm</p>
@@ -61,12 +62,13 @@ export default function Ubicacion() {
             <div className="ubicacionMaps">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15908.15966063447!2d-74.16315452327753!3d4.586858863649104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9f23409b4f75%3A0xef8a79a5e02535a9!2sDU-ART%20STUDIO!5e0!3m2!1ses-419!2sco!4v1742415082521!5m2!1ses-419!2sco"
-                width="600"
-                height="350"
+                width="700"
+                height="400"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
+                alt="Ubicacion de Empresa"
               ></iframe>
             </div>
           </div>

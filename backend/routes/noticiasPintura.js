@@ -75,9 +75,9 @@ console.log("Actualizar")
 });
 
 // Eliminar noticia por ID
-router.delete("/:titulo", (req, res) => {
-  const id = req.params.titulo;
-  const getImageQuery = "SELECT cover FROM Noticias_Pintura WHERE nombre_Noticia_Pintura = ?";
+router.delete("/:id_Noticias_Pintura", (req, res) => {
+  const id = req.params.id_Noticias_Pintura;
+  const getImageQuery = "SELECT cover FROM Noticias_Pintura WHERE id_Noticias_Pintura = ?";
   console.log(getImageQuery, "!!!!!!!!!!!!!");
   
 
@@ -86,7 +86,7 @@ router.delete("/:titulo", (req, res) => {
     if (!results.length) return res.status(404).json({ message: "❌ Noticia no encontrada" });
 
     const imagen = results[0].cover;
-    const deleteQuery = "DELETE FROM Noticias_Pintura WHERE nombre_Noticia_Pintura = ?";
+    const deleteQuery = "DELETE FROM Noticias_Pintura WHERE id_Noticias_Pintura = ?";
 
     db.query(deleteQuery, [id], (err) => {
       if (err) return res.status(500).json({ error: "Error al eliminar noticia" });

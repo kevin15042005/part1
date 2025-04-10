@@ -3,7 +3,7 @@
     justify-content: space-around;
     align-items: center;
     color: black;
-    background: linear-gradient(90deg,red,blue,green);
+    background: black;
     height: 12rem;
     border-radius: 5px;
 }

@@ -27,7 +27,6 @@ export default function Pintura() {
         </div>
         <div className="Container-Pintura">
           <div className="Contenedor-principal">
-            <label htmlFor="">Contenedor 1</label>
             <ul className="grid-container-pintura">
               {noticiasPintura.map((noticia) => (
                 <li key={noticia.id_Noticias_Pintura} className="grid-item-pintura">
@@ -40,6 +39,7 @@ export default function Pintura() {
                       className="imagen"
                     />
                   )}
+                  <span>{noticia.id_Noticias_Pintura}</span>
                 </li>
               ))}
             </ul>
