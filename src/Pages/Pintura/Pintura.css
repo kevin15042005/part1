@@ -1,6 +1,9 @@
 .Menu-Pintura h1 {
   height: 10rem;
 }
+.Contenido-Principal{
+  background-color: rgba(230,240,255,1);
+}
 .Informacion-Pintura h3{
   font-size: 20px;
   display: flex;
@@ -8,14 +11,25 @@
   padding: 20px;
 }
 
-.Informacion-Pintura-P{
+.Informacion-Pintura p{
   display: flex;
   justify-content: center;
+  align-items: center;
   font-family: Poppins, sans-serif;
   font-size: 20px;
   padding: 25px;
-  max-width: 35rem ;
-  margin: 15px auto;
+  max-width: 31rem ;
+  margin: 5rem auto;
+  animation: DeslizarDerecha 1.2s ease-out forwards;
+}
+@keyframes DeslizarDerecha{
+  from{
+    transform: translateX(60px);
+    opacity: 0;
+  }to{
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 .grid-container-pintura{
   display: grid;
@@ -23,6 +37,11 @@
   gap: 20px;
   list-style-type: none;
   padding: 0;
+}
+.grid-container-pintura span{
+  font-size: 8px;
+  display: flex;
+  justify-content: end;
 }
 .grid-item-pintura{
   border: 1px solid #ccc;
@@ -37,8 +56,4 @@
   max-width: 200%;
   object-fit: cover;
   border-radius: 8px;
-}
-.Informacion-Pintura-P{
-  margin: 20px auto;
-  max-width: 45;
 }

@@ -1,18 +1,24 @@
+.Informacion {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: linear-gradient(to right,  rgb(75, 159, 165),rgb(25, 80, 220));
+}
 .contacto {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #003c61;
   border-radius: 25px;
 }
 .contacto form {
   max-width: 600px;
   width: 100%;
-  background: #014671;
+  background-color: rgba(4, 75, 111, 0.5);
   border-radius: 50px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  color: #fff;
+  box-shadow: 5px 10px 20px rgb(66, 120, 255);
+
+  color: #000;
   margin: 25px;
   padding: 0px 28px 11px 25px;
 }
@@ -22,37 +28,51 @@
   text-align: center;
 }
 
-.contacto form .input-box {
+.contacto form .input-box-contacto {
   margin-top: 20px;
 }
-.contacto .input-box .field {
+.contacto .input-box-contacto .field-contacto {
   width: 100%;
   height: 50px;
   background-color: transparent;
-  border: 2px solid #0498f4;
+  border: 2px solid #71bfef;
+  border-radius: 15px;
+  box-shadow: 2px 2px 12px rgba(174, 172, 172, 0.5);
   outline: none;
   padding: 5px;
   font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.input-box .field.mess {
+.input-box-contacto .field-contacto.mess {
   height: 200px;
   resize: none;
 }
-.field {
-  color: #fff;
-}
 
-.field::placeholder {
-  color: #fff; /* Cambia el color del texto del placeholder a blanco */
-  opacity: 1; /* Asegura que el color sea completamente visible */
+.input-box-contacto label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+}
+/*Asegura que los mensaje de placeholder mejore*/
+
+.field-contacto::placeholder {
+  color: #fff;
+  opacity: 1;
 }
 .contacto form button {
   width: 100%;
   height: 55px;
-  background: #016eb2;
+  background: rgba;
   border: none;
-  border-radius: 6px;
+  border-radius: 20px;
+  background: linear-gradient(to right, rgb(155, 180, 255), rgb(55, 99, 211));
   box-shadow: 0 0 10 rgba(0, 0, 0, 0.5);
   cursor: pointer;
   font-size: 16px;
@@ -62,35 +82,27 @@
   transition: 0.9s;
 }
 
-.contacto form button:hover {
-  background: #00131f;
-  border: #003c61;
-}
-.Infromacion2 {
+.Informacion2 {
   flex: 1;
   max-width: 45%;
-  background-color: #333;
   padding: 20px;
-  box-shadow: 0 0 10 rgba(0, 0, 0, 0.1);
-  color: #fff;
   border-radius: 25px;
 }
 
-.Infromacion2 .content {
-  background: #404040; /* Fondo blanco */
+.Informacion2 .content {
+  background-color: rgba(4, 75, 111, 0.5);
   padding: 8px;
   border-radius: 25px;
-  color: #333; /* Color del texto */
-  border: none; /* Borde azul */
-}
-.content h1 {
-  color: #fff;
+  color: #333;
+  border: none;
+  box-shadow: 5px 10px 20px rgb(66, 120, 255);
 }
 
-.Infromacion2 h1 {
+.Informacion2 h1 {
   text-align: center;
   margin-bottom: 20px;
   font-size: 30px;
+  color: #000;
 }
 .Informacion-Contacto {
   display: flex;
@@ -110,19 +122,17 @@
   display: flex;
   justify-content: center;
   gap: 60px;
-  margin-top: 10px;
+  margin-top: 10px;   
 }
-.Informacion {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  border-radius: 20px;
-  background: #0e222e;
+.redes-sociales a:hover{
+  box-shadow: 0 6px 15px rgba(0, 114, 255, 3);
+  transition: all 0.4s ease;
+
+
 }
 .InformacionCorreo {
   flex: 1;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .correo {
   padding: 7rem;
@@ -138,9 +148,8 @@
 .RedireccionChat button {
   width: 100%;
   height: 55px;
-  background: #016eb2;
-  border: none;
-  border-radius: 6px;
+  background: linear-gradient(to right, rgb(155, 180, 255), rgb(55, 99, 211));  border: none;
+  border-radius: 20px;
   box-shadow: 0 0 10 rgba(0, 0, 0, 0.1);
   cursor: pointer;
   font-size: 16px;
@@ -150,32 +159,30 @@
   margin-bottom: 20px;
   transition: 0.9s;
 }
-.RedireccionChat button:hover {
-  background: #00131f;
-  border: #003c61;
-}
+
 
 .email-button {
   width: 100%;
   height: 55px;
-  background: #016eb2;
-  box-shadow: 0 0 10 rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to right, #00c6ff, #0072ff); /* Colores más vivos */
   border: none;
   border-radius: 8px;
-  font-size: 20px;
+  font-size: 15px;
   color: #fff;
-  transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 114, 255, 0.3);
+  transition: all 0.4s ease;
 }
+
 .email-button:hover {
-  background: #00385b;
-  border: #003c61;
+  box-shadow: 0 6px 15px rgba(0, 114, 255, 3); /* Sombra más fuerte */
 }
 
 .telefono-button {
   width: 100%;
   height: 55px;
-  background: #016eb2;
-  box-shadow: 0 0 10 rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to right, #00c6ff, #0072ff); /* Colores más vivos */
   border: none;
   border-radius: 8px;
   font-size: 20px;
@@ -183,6 +190,6 @@
   transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
 }
 .telefono-button:hover {
-  background: #00385b;
-  border: #003c61;
+  box-shadow: 0 6px 15px rgba(0, 114, 255, 3); /* Sombra más fuerte */
+
 }

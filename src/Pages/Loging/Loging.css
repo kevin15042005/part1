@@ -1,26 +1,31 @@
-/*Formulario de Loging*/
 
 .formulararioPrincipal {
-  background-color: #0e222e;
+  background: linear-gradient(to right, rgb(25, 80, 220), rgb(102, 223, 232));
 }
+.Texto h2{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
 .Menu-Loging {
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
   max-width: 500px;
   max-height: 100rem;
   margin: 20px auto;
-  background-color: rgba(4, 75, 111, 0.881);
+  background-color: rgba(4, 75, 111, 0.5);
   box-shadow: 2px 2px 12px rgba(174, 172, 172, 0.5);
 }
+
 .nombreUsuario h2 {
   display: flex;
   justify-content: center;
   font-size: 25px;
-  color: #fff;
+  color: #000;
+  padding: 20px;
 }
-.nombreUsuario form {
-  border: 1px solid;
-}
+
 .nombreUsuario label {
   display: flex;
   flex-direction: column;
@@ -29,9 +34,22 @@
   font-weight: bold;
   color: #fff;
 }
+
+.usuarioNewRegister a{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  transition: 1s;
+  color: black;
+  font-size: 15px;
+}
+.usuarioNewRegister a:hover{
+  color: #00cc69;;
+}
 .field {
   font-size: 17px;
 }
+
 .input-box input {
   display: flex;
   justify-content: center;
@@ -39,17 +57,20 @@
   padding: 13px 40px 12px 20px;
   border-radius: 8px;
   border: 2px solid #0e222e;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.2);
   transition: transform 0.5s cubic-bezier(0.25, 0.9, 0.25, 1);
-  background-color: transparent;
-  color: #d6cfcf;
+  color: #000;
+}
+.input-check h4{
+  display: flex;
+  justify-content: center;
 }
 .input-box input::placeholder {
   font-size: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #00cc69;
+  color: #000;
 }
 
 .button-ingresar button {
@@ -57,17 +78,19 @@
   justify-content: center;
   margin: 20px auto;
   padding: 20px;
+  background: linear-gradient(to right, rgb(55, 99, 211));
   border-radius: 8px;
   border: 2px solid #0e222e;
   box-shadow: 5px 5px 15px rgba(174, 172, 172, 0.5);
   transition: transform 0.5s cubic-bezier(0.25, 0.9, 0.25, 1);
-  background-color: transparent;
   color: #d7e5ed;
 }
-.button-ingresar button:hover{
-background: #00cc69;
-transition: 1s;
+
+.button-ingresar button:hover {
+  background: #00cc69;
+  transition: 1s;
 }
+
 .ingresarButton {
   font-size: 14px;
 }
@@ -77,31 +100,31 @@ transition: 1s;
   justify-content: center;
   padding: 20px;
   text-decoration: none;
-  color: #0a93e9;
+  color: #019cfd;
 }
+
 .linkOlvidarContraseña:hover {
   transition: 0.8s;
   color: #00cc69;
 }
+
 .NewUsuario {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
 }
+
 .NewUsuario a {
-  text-decoration: none;
-  color: #0a93e9;
+  color: #000;
 }
+
 .NewUsuario a:hover {
   color: #00cc69;
   transition: 0.8s;
 }
 
-.NewUsuario {
-  padding: 20px;
-}
 
-/*Formulario Registro*/
 .Menu-Register {
   border: none;
   border-radius: 10px;
@@ -111,22 +134,28 @@ transition: 1s;
   background-color: rgba(4, 75, 111, 0.881);
   box-shadow: 2px 2px 12px rgba(174, 172, 172, 0.5);
 }
+
 .menu-register form {
   background-color: #0e222e;
 }
+
 .input-box label {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
-  color: #fff;
+  padding: 12px;
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-
-/*Formulario Olvidar Contraseña*/
+/* ========================
+   FORMULARIO OLVIDAR CONTRASEÑA
+======================== */
 .formulararioPrincipalOlvidar {
   background-color: #0e222e;
 }
+
 .formulararioPrincipalOlvidar h2 {
   display: flex;
   justify-content: center;
@@ -137,6 +166,7 @@ transition: 1s;
 .formulararioPrincipalOlvidar form {
   border: 1px solid;
 }
+
 .formulararioPrincipalOlvidar label {
   display: flex;
   flex-direction: column;
@@ -145,6 +175,7 @@ transition: 1s;
   font-weight: bold;
   color: #fff;
 }
+
 .Menu-Password {
   border: none;
   border-radius: 10px;
@@ -154,36 +185,43 @@ transition: 1s;
   background-color: rgba(4, 75, 111, 0.881);
   box-shadow: 2px 2px 12px rgba(174, 172, 172, 0.5);
 }
-.button-contraseña button {
-    display: flex;
-    justify-content: center;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 8px;
-    border: 2px solid #0e222e;
-    box-shadow: 5px 5px 15px rgba(174, 172, 172, 0.5);
-    transition: transform 0.5s cubic-bezier(0.25, 0.9, 0.25, 1);
-    background-color: transparent;
-    color: #d7e5ed;
-  }
-  .button-contraseña button:hover{
-    background: #00cc69;
-    transition: 1s;
-  }
 
-  .VolverInicio button {
-    width: 100%;
-    background-color: #00cc69; /* Color de fondo verde */
-    color: #fff; /* Color del texto */
-    border: none;
-    border-radius: 5px;
-    padding: 15px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 16px; /* Tamaño de fuente */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
-  }
-  
-  .VolverInicio button:hover {
-    background-color: #00a856; /* Color de fondo al pasar el cursor */
-  }
+.button-contraseña button {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px solid #0e222e;
+  background: linear-gradient(to right, rgb(55, 99, 211));
+  box-shadow: 5px 5px 15px rgba(174, 172, 172, 0.5);
+  transition: transform 0.5s cubic-bezier(0.25, 0.9, 0.25, 1);
+  color: #d7e5ed;
+}
+
+.button-contraseña button:hover {
+  background: #00cc69;
+  transition: 1s;
+}
+
+.VolverInicio button {
+  width: 100%;
+  background-color: #00cc69;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.VolverInicio button:hover {
+  background-color: #00a856;
+}
+
+.TextoContraseña{
+  display: flex;
+  justify-content: center;
+}

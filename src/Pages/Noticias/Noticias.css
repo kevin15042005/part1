@@ -43,20 +43,38 @@
 display: flex;
 justify-content: center;
 font-family: Arial, Helvetica, sans-serif;
-font-size: 20px;
+font-size: 25px;
 padding: 20px;
   }
 .Informacion-Noticia p{
   display: flex;
   justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
+  font-size: 20px;
 }
-.Contenedor-principal label{
+.Contenedor-principal label {
   display: flex;
   justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: bold;
   padding: 25px;
+  animation: aparecerDesdeArribaConRebote 1.2s ease-out forwards;
+}
+
+@keyframes aparecerDesdeArribaConRebote {
+  0% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(30px);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

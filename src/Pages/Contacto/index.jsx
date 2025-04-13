@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../../Components/layout";
 import Footer from "../../Components/Footer/footer";
-import "./Contacto.css"
+import "./Contacto.css";
 import Facebook from "../../assest-icons/facebook.png";
 import Intagram from "../../assest-icons/instagram.png";
 import TikTok from "../../assest-icons/tiktok.png";
-import "./Contacto.css"
+import "./Contacto.css";
 
 export default function Contacto() {
   const [result, setResult] = React.useState("");
@@ -33,6 +33,38 @@ export default function Contacto() {
     }
   };
 
+  const [mensaje, setMensaje] = React.useState("");
+  const [mostrarAlerta, setMostrarAlerta] = useState(false);
+  const maxPalabras = 45;
+  const maxCaracteres = 45;
+  
+  const handleMensajeChange = (e) => {
+    const texto = e.target.value;
+    const palabras = texto.trim().split(/\s+/); // ← primero definimos las palabras
+  
+    // Verificar si hay alguna palabra demasiado larga
+    const hayPalabraMuyLarga = palabras.some(
+      (palabra) => palabra.length > maxCaracteres
+    );
+  
+    if (hayPalabraMuyLarga) {
+      if (!mostrarAlerta) {
+        alert(`Cada palabra debe tener máximo ${maxCaracteres} caracteres.`);
+        setMostrarAlerta(true);
+      }
+      return; // detener aquí para no actualizar el mensaje
+    }
+  
+    // Verificar si está dentro del límite de palabras
+    if (palabras.length <= maxPalabras) {
+      setMensaje(texto); // se actualiza el mensaje normalmente
+      setMostrarAlerta(false); // reseteamos la alerta si estaba activa
+    } else if (!mostrarAlerta) {
+      alert("Has alcanzado el límite de palabras.");
+      setMostrarAlerta(true);
+    }
+  };
+  
   return (
     <div id="main-container">
       <Layout />
@@ -41,33 +73,35 @@ export default function Contacto() {
           <section className="contacto">
             <form onSubmit={onSubmit}>
               <h2>Contactonos Aqui</h2>
-              <div className="input-box">
+              <div className="input-box-contacto">
                 <label>Nombre Completo</label>
                 <input
                   type="text"
-                  className="field"
+                  className="field-contacto"
                   placeholder="Ingresar tu nombre"
                   name="nombre"
                   required
                 />
               </div>
-              <div className="input-box">
+              <div className="input-box-contacto">
                 <label>Direccion Email</label>
                 <input
                   type="email"
-                  className="field"
+                  className="field-contacto"
                   placeholder="Ingresar tu Email"
                   name="email"
                   required
                 />
               </div>
-              <div className="input-box">
+              <div className="input-box-contacto">
                 <label>Mensaje</label>
                 <textarea
                   name="mensaje"
-                  className="field mess"
+                  className="field-contacto mess"
                   placeholder="Escribe un mensaje "
                   required
+                  value={mensaje}
+                  onChange={handleMensajeChange}
                 ></textarea>
               </div>
               <button type="submit">Subir Mensaje</button>
@@ -75,7 +109,7 @@ export default function Contacto() {
             </form>
           </section>
         </div>
-        <div className="Infromacion2">
+        <div className="Informacion2">
           <div className="content">
             <h1>Tambien por Aqui</h1>
             <div className="InformacionNumero">
@@ -85,8 +119,7 @@ export default function Contacto() {
                     <button
                       className="email-button"
                       onClick={() =>
-                        (window.location.href =
-                          "mailto:kevinycami@yopmail.com")
+                        (window.location.href = "mailto:kevinycami@yopmail.com")
                       }
                     >
                       Enviar Correo

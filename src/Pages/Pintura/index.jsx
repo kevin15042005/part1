@@ -15,34 +15,39 @@ export default function Pintura() {
     <>
       <div id="main-container">
         <Layout />
-        <div className="Informacion-Pintura">
-          <h3 className="Informacion-Pintura">
-            Veremos la informacion relevante que diseños de pinutras se han
-            creados{" "}
-          </h3>
-          <p className="Informacion-Pintura-P">
-            Aca veremos reflejado que dieseños hemos creado asi que disfruta de
-            esta maravillosa motos diseñadas con la pasion de Duart-Studio{" "}
-          </p>
-        </div>
-        <div className="Container-Pintura">
-          <div className="Contenedor-principal">
-            <ul className="grid-container-pintura">
-              {noticiasPintura.map((noticia) => (
-                <li key={noticia.id_Noticias_Pintura} className="grid-item-pintura">
-                  <h2>{noticia.nombre_Noticia_Pintura}</h2>
-                  <p>{noticia.contenido_Noticia_Pintura}</p>
-                  {noticia.cover && (
-                    <img
-                      src={`http://localhost:8080/uploads/${noticia.cover}`}
-                      alt={noticia.nombre_Noticia_Pintura}
-                      className="imagen"
-                    />
-                  )}
-                  <span>{noticia.id_Noticias_Pintura}</span>
-                </li>
-              ))}
-            </ul>
+        <div className="Contenido-Principal">
+          <div className="Informacion-Pintura">
+            <h3>
+              Veremos la informacion relevante que diseños de pinutras se han
+              creados{" "}
+            </h3>
+            <p>
+              Aca veremos reflejado que dieseños hemos creado asi que disfruta
+              de esta maravillosa motos diseñadas con la pasion de Duart-Studio{" "}
+            </p>
+          </div>
+          <div className="Container-Pintura">
+            <div className="Contenedor-principal">
+              <ul className="grid-container-pintura">
+                {noticiasPintura.map((noticia) => (
+                  <li
+                    key={noticia.id_Noticias_Pintura}
+                    className="grid-item-pintura"
+                  >
+                    <h2>{noticia.nombre_Noticia_Pintura}</h2>
+                    <p>{noticia.contenido_Noticia_Pintura}</p>
+                    {noticia.cover && (
+                      <img
+                        src={`http://localhost:8080/uploads/${noticia.cover}`}
+                        alt={noticia.nombre_Noticia_Pintura}
+                        className="imagen"
+                      />
+                    )}
+                    <span>{noticia.id_Noticias_Pintura}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
         <footer>

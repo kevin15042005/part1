@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../../Components/layout";
 import Footer from "../../Components/Footer/footer";
 import "./Nosotros.css";
+import ScrollAnimation from"../../Components/ScrollAnimation/index"
 export default function Ubicacion() {
   return (
     <div id="main-container">
@@ -9,6 +10,7 @@ export default function Ubicacion() {
       <div className="Menu-Ubicacion">
         <div className="InformacioNosotros">
           <section className="Menu-Mision">
+            <ScrollAnimation>
             <h2>Mision</h2>
             <p className="MisionP activo">
               DUART-STUDIO es una microempresa especializada en la
@@ -20,9 +22,12 @@ export default function Ubicacion() {
               de comercialización de personalización y pintura en la ciudad de
               Bogotá en el año 2025, con la finalidad de satisfacer al cliente.{" "}
             </p>
+            </ScrollAnimation>
           </section>
           <section className="Menu-Vision">
             <h2>Vision</h2>
+            <ScrollAnimation>
+
             <p className="VisionP activo">
               Consolidarnos en Bogotá en el año 2026-1 con mayor relevancia en
               el mercado, tanto en la personalización de motos como en
@@ -32,9 +37,12 @@ export default function Ubicacion() {
               crecimiento y mejoren la relación con los clientes y los servicios
               ofrecidos.{" "}
             </p>
+            </ScrollAnimation>
           </section>
           <div className="Menu-Objetivo">
             <h2>Objetivos</h2>
+            <ScrollAnimation>
+
             <p className="ObjetivoP activo">
               Objetivo General. Desarrollar una página web que permita el
               aumento de la visibilidad, promoción y accesibilidad a los
@@ -42,6 +50,8 @@ export default function Ubicacion() {
               Duart-Studio, integrando futuras funcionalidades que fortalezcan
               la relación con el cliente en el año 2025.{" "}
             </p>
+            </ScrollAnimation>
+
           </div>
           <section className="Ubicacion">
             <p>
