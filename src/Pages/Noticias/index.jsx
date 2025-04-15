@@ -24,7 +24,6 @@ export default function Noticias() {
           </div>
           <div className="Container-Noticia">
             <div className="Contenedor-principal">
-              <label htmlFor="">Pinturas</label>
               <ul className="grid-container-noticias">
                 {noticias.map((noticia) => (
                   <li key={noticia.id_Noticia} className="grid-item-noticias">

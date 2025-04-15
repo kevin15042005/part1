@@ -6,7 +6,7 @@ export default function Pintura() {
   const [noticiasPintura, setNoticiasPintura] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/noticiaspintura")
+    fetch("http://localhost:8080/pintura")
       .then((res) => res.json())
       .then((data) => setNoticiasPintura(data))
       .catch((err) => console.log(err));

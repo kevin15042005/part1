@@ -27,6 +27,12 @@ const Navbar = () => {
             <img src={Logo} className="navLogo" alt="" />
           </div>
           <li>
+            <Link to="/Compra" className="colorTexto">
+            Shop
+            </Link>
+          </li>
+         
+          <li>
             <Link to="/Nosotros" className="colorTexto">
               Nosotros
             </Link>
@@ -42,34 +48,10 @@ const Navbar = () => {
               Ingreso
             </Link>
           </li>
+          
 
-          {/* <li>
-          <Link to="/nosotros">Nosotros</Link>
-        </li> */}
-          {/* <li className="nav-contact">
-          <Link to="/login">Login</Link>
-        </li> */}
-
-          <li>
-            <Link to="/CrudNoticias" className="colorTexto">
-              Crud Noticias
-            </Link>
-          </li>
-          <li>
-            <Link to="/CrudNoticiasPintura" className="colorTexto">
-              Crud Noticias Pintura
-            </Link>
-          </li>
-          <li>
-            <Link to="/Shop" className="colorTexto">
-            Shop
-            </Link>
-          </li>
-          <li>
-            <Link to="/Shop1" className="colorTexto">
-            Shop1
-            </Link>
-          </li>
+        
+         
         </ul>
       </div>
     </>

@@ -27,11 +27,9 @@ function App() {
 
         <div className="Introduccion_Duart">
           <p>
-            {" "}
-            <h3>
+            
               Disfruta de este agradable video donde veras lo que 
               tenemos para ti
-            </h3>
           </p>
           <iframe
             width="600"

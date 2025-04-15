@@ -1,0 +1,14 @@
+.Menu-Principal-Shop{
+    background: linear-gradient( to right, rgb(255, 239, 15),rgb(255, 83, 15));
+}
+.Titulo-Shop{
+    display: flex;
+    justify-content: center;
+}
+.Formularios-Shop{
+    display: grid;
+    grid-template-columns: repeat(3 ,1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin:0 auto;
+}

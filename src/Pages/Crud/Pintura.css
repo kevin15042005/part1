@@ -1,0 +1,46 @@
+.menu-Pricipal-Pintura {
+  background: linear-gradient(to right, rgb(255, 239, 15), rgb(255, 83, 15));
+}
+.Titulo {
+  display: flex;
+  justify-content: center;
+}
+.Fomularios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0px 70px 45px;
+}
+.Fomularios form{
+align-items: center;
+}
+.Fomularios h2{
+display: flex;
+justify-content: center;
+}
+.Fomularios input{
+    display: flex;
+    flex-direction: column;
+    padding:20px;
+    margin:20px auto;
+    border-radius: 20px;
+    border: none;
+}
+.Fomularios button{
+padding: 10px;
+font-size: 20px ;
+margin:0 7rem;
+border-radius: 20px;
+border: none;
+}
+
+.Descripcion-Formulario{
+resize: none;
+width: 20rem;
+height: 20rem;
+display: flex;
+justify-content: center;
+border-radius: 20px;
+}

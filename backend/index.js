@@ -3,7 +3,8 @@ import cors from "cors";
 import fs from "fs";
 import db from "./db.js";
 import noticiasRoutes from "./routes/noticias.js";
-import noticiasPinturaRoutes from "./routes/noticiaspintura.js";
+import noticiasPinturaRoutes from "./routes/pintura.js";
+
 import ShopRoutes from "./routes/Shop.js";
 import adminRouter from "./routes/admin.js"; 
 
@@ -22,7 +23,7 @@ app.use("/uploads", express.static("uploads"));
 
 // Rutas
 app.use("/noticias", noticiasRoutes);
-app.use("/noticiaspintura", noticiasPinturaRoutes);
+app.use("/pintura", noticiasPinturaRoutes);
 app.use("/Shop", ShopRoutes);
 app.use("/admin", adminRouter); // también corregido
 

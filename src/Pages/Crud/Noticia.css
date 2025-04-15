@@ -1,0 +1,50 @@
+.Menu-Principal{
+    
+    background: linear-gradient( to right, rgb(255, 239, 15),rgb(255, 83, 15));
+
+}
+.Titulo{
+    display: flex;
+    justify-content: center;
+}
+.Formularios{
+    display: grid;
+    grid-template-columns: repeat(3 ,1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin:0 auto;
+}
+.Formularios h1{
+    display: flex;
+    justify-content: center;
+}
+
+.Formularios form{
+    margin: 3rem auto;
+}
+.Formularios input {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 20px;
+    border: none;
+}
+.Formularios button{
+    padding: 10px;
+    font-size: 20px;
+    margin: 0 7rem;
+    border-radius: 20px;
+    border: none;
+}
+.Formularios button:hover{
+    background: rgba(255, 34, 34, 0.801);
+}
+.Descripcion-Formulario1{
+    resize: none;
+    height: 20rem;
+    width: 20rem;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}

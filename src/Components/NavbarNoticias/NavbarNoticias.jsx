@@ -1,31 +1,42 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import "./NavbarNoticias.css"; // Asegúrate de importar los estilos
-function NavbarNoticias() {
-  const [submenuOpen, setSubmenuOpen] = useState(false);
-
+import "./Navbar.css";
+import Logo from "../../assets/LogoPrincipal.jpg";
+const NavbarNoticia = () => {
   return (
-    <nav>
-      <ul>
-        <li
-          onMouseEnter={() => setSubmenuOpen(true)}
-          onMouseLeave={() => setSubmenuOpen(false)}
-        >
-          <Link to="/noticias">Noticias</Link>
-          {submenuOpen && (
-            <ul className="submenu">
-              <li>
-                <Link to="/noticias/add">Add</Link>
-              </li>
-              <li>
-                <Link to="/noticias/update">Update</Link>
-              </li>
-            </ul>
-          )}
-        </li>
-      </ul>
-    </nav>
+    <>
+      <div></div>
+      <div className="nav">
+        <ul className="nav-menu">
+          <li>
+            <Link to="/" className="colorTexto">
+              Inicio
+            </Link>
+          </li>
+          <li>
+            <Link to="/CrudNoticias" className="colorTexto">
+              Noticias
+            </Link>
+          </li>
+          <li>
+            <Link to="/CrudNoticiasPintura" className="colorTexto">
+              Pintura
+            </Link>
+          </li>
+          <li>
+            <Link to="/Shop" className="colorTexto">
+              Shop
+            </Link>
+          </li>
+          <li>
+            <button onClick={()=>{localStorage.clear()
+              window.location.href="/"
+            }}> Cerrar Sesion</button>
+          </li>
+        </ul>
+      </div>
+    </>
   );
-}
+};
 
-export default NavbarNoticias;
+export default NavbarNoticia;

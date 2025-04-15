@@ -26,9 +26,14 @@ router.get("/", (req, res) => {
 router.post("/", upload.single("cover"), (req, res) => {
   const { nombre_Noticias, contenido_Noticia } = req.body;
   const cover = req.file?.filename || null;
+  
+  if(!nombre_Noticias||!contenido_Noticia||!cover){
+    return res.status(400).json({message:"Todos los campos son obligatorios"})
+  }
 
   const q = `INSERT INTO noticias (nombre_Noticias, contenido_Noticia, fecha_Publicacion, id_Administrador, cover) VALUES (?, ?, NOW(), ?, ?)`;
   db.query(q, [nombre_Noticias, contenido_Noticia, 1, cover], (err) => {
+    
     if (err) return res.status(500).json({ error: "Error al insertar noticia" });
     return res.json({ message: "✅ Noticia publicada correctamente" });
   });

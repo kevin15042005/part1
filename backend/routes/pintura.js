@@ -16,6 +16,7 @@ const upload = multer({ storage });
 
 // Obtener todas las noticias
 router.get("/", (req, res) => {
+
   const q = "SELECT * FROM Noticias_Pintura";
   db.query(q, (err, data) => {
     if (err) return res.status(500).json({ error: "Error en la consulta" });
