@@ -96,6 +96,7 @@
   color: #333;
   border: none;
   box-shadow: 5px 10px 20px rgb(66, 120, 255);
+  height: 100%;
 }
 
 .Informacion2 h1 {
@@ -141,6 +142,9 @@
 .correo:hover {
   color: #009dff;
 }
+.telefono{
+  padding: 20px;
+}
 .telefono:hover {
   color: #049fff;
 }
@@ -155,13 +159,13 @@
   font-size: 16px;
   color: #fff;
   font-weight: 500;
-  margin-top: 147px;
-  margin-bottom: 20px;
+  margin-top: 200px;  
   transition: 0.9s;
 }
 
 
 .email-button {
+  padding: 0 28px;
   width: 100%;
   height: 55px;
   background: linear-gradient(to right, #00c6ff, #0072ff); /* Colores más vivos */

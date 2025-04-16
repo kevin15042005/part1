@@ -3,7 +3,7 @@
     background: linear-gradient( to right, rgb(255, 239, 15),rgb(255, 83, 15));
 
 }
-.Titulo{
+.Titulo-Noticia{
     display: flex;
     justify-content: center;
 }
@@ -13,15 +13,15 @@
     gap: 40px;
     max-width: 1200px;
     margin:0 auto;
+    padding: 20px 0px 70px 45px;
 }
-.Formularios h1{
+.Formularios h2{
     display: flex;
     justify-content: center;
 }
 
-.Formularios form{
-    margin: 3rem auto;
-}
+
+
 .Formularios input {
     display: flex;
     justify-content: center;
@@ -47,4 +47,5 @@
     border-radius: 20px;
     display: flex;
     justify-content: center;
+    padding: 20px;
 }

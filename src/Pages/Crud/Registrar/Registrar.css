@@ -1,0 +1,51 @@
+.title-Registro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.FormulariosRegistar {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0px 70px 45px;
+}
+.FormulariosRegistar form {
+  display: grid;
+  justify-content: center;
+  padding: 20px;
+}
+.FormulariosRegistar input {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 18px;
+  border: none;
+}
+.boton-Registro {
+  padding: 20px;
+  border-radius: 20px;
+}
+.Eliminar {
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+
+}
+
+.Contenedor-Registrar {
+  background: linear-gradient(to right, rgb(25, 80, 220), rgb(102, 223, 232));
+}
+.Form {
+  background: rgba(25, 80, 220, 0.084);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+}
+.Form1 {
+  background: rgba(25, 80, 220, 0.084);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+}
+.Form button{
+  border: none;
+}

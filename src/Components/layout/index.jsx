@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import NavbarNoticia from "../NavbarNoticias/NavbarNoticias";
 const Layout = ({ children }) => {
-  const isLoging = localStorage.getItem("isLoging");
-  console.log("Que seuce", isLoging);
+const isLoging = localStorage.getItem("isLoging");
 
   return (
     <div className="Main">

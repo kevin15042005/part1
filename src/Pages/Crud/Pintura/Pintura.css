@@ -1,7 +1,7 @@
 .menu-Pricipal-Pintura {
   background: linear-gradient(to right, rgb(255, 239, 15), rgb(255, 83, 15));
 }
-.Titulo {
+.Titulo-Pintura {
   display: flex;
   justify-content: center;
 }
@@ -43,4 +43,5 @@ height: 20rem;
 display: flex;
 justify-content: center;
 border-radius: 20px;
+padding: 20px;
 }

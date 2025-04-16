@@ -41,3 +41,16 @@ color:rgba(red, green, blue, alpha)
 .nav-menu .ColoresFondo{
     list-style: none;
 }
+
+.Cerrar-Sesion{
+    background: #004e9c;
+    padding: 20px;
+    border-radius: 20px;
+    border: none;
+    
+}
+.Cerrar-Sesion:hover{
+    background: #00b2a0;
+    transition: 0.8s ease-in-out;
+
+}

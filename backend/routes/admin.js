@@ -1,20 +1,52 @@
 // routes/admin.js
 import express from "express";
 import db from "../db.js";
+import { data } from "react-router-dom";
 
 const router = express.Router();
 
 // Registro de administrador
 router.post("/register", (req, res) => {
-  const { nombre_Administrador, contraseña_Administrador, correo_Administrador, rol_Administrador } = req.body;
-  const q = `
-    INSERT INTO Administrador 
-    (nombre_Administrador, contraseña_Administrador, correo_Administrador, rol_Administrador) 
-    VALUES (?, ?, ?, ?)`;
+  const {
+    nombre_Administrador,
+    contraseña_Administrador,
+    correo_Administrador,
+    rol_Administrador
+  } = req.body;
 
-  db.query(q, [nombre_Administrador, contraseña_Administrador, correo_Administrador, rol_Administrador], (err) => {
-    if (err) return res.status(500).json({ message: "❌ Error al registrar", error: err });
-    return res.json({ message: "✅ Usuario registrado exitosamente" });
+  const chekUsuario = `SELECT * FROM Administrador WHERE nombre_Administrador = ? OR correo_Administrador = ?`;
+
+  db.query(chekUsuario, [nombre_Administrador, correo_Administrador], (err, data) => {
+    if (err) {
+      return res.status(500).json({
+        message: "❌ Error al verificar duplicado",
+        error: err
+      });
+    }
+
+    if (data.length > 0) {
+      return res.status(400).json({
+        message: "❌ Usuario o correo ya registrado"
+      });
+    }
+
+    const q = `
+      INSERT INTO Administrador 
+      (nombre_Administrador, contraseña_Administrador, correo_Administrador, rol_Administrador) 
+      VALUES (?, ?, ?, ?)`;
+
+    db.query(q, [nombre_Administrador, contraseña_Administrador, correo_Administrador, rol_Administrador], (err) => {
+      if (err) {
+        return res.status(500).json({
+          message: "❌ Error al registrar",
+          error: err
+        });
+      }
+
+      return res.json({
+        message: "✅ Usuario registrado exitosamente"
+      });
+    });
   });
 });
 
@@ -62,6 +94,26 @@ router.put("/:id", (req, res) => {
       if (err) return res.status(500).json({ message: "❌ Error al actualizar contraseña", error: err });
 
       return res.json({ message: "🔁 Contraseña actualizada exitosamente" });
+    });
+  });
+});
+//Eliminar Usuario
+router.delete("/:nombre_Administrador", (req, res) => {
+  const nombre_Administrador = req.params.nombre_Administrador;
+  const getUsuario = "SELECT * FROM Administrador WHERE nombre_Administrador = ?";
+  
+
+  db.query(getUsuario, [nombre_Administrador], (err, results) => {
+    if (err) return res.status(500).json({ error: "Error buscando Usuario" });
+    if (!results || results.length === 0) {
+      return res.status(404).json({ message: "❌ Administrador no encontrado" });
+    }
+    
+    const deleteQuery = "DELETE FROM Administrador WHERE nombre_Administrador = ?";
+
+    db.query(deleteQuery, [nombre_Administrador], (err) => {
+      if (err) return res.status(500).json({ error: "Error al eliminar usuario" });
+      return res.json({ message: "✅ Administrador eliminado correctamente" });
     });
   });
 });

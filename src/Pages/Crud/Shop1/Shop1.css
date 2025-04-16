@@ -12,3 +12,7 @@
     max-width: 1200px;
     margin:0 auto;
 }
+.Formularios-Shop h2{
+    display: flex;
+    justify-content: center;
+}

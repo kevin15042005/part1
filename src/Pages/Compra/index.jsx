@@ -39,8 +39,8 @@ export default function Shop1() {
                     />
                   )}
                   <h3>${articulo.precio_Shop}</h3>
-                  <span>{articulo.id_Shop}</span>
                   <button>Dirigir a productos</button>
+                  <span className="num-Id">{articulo.id_Shop}</span>
                 </li>
               ))}
             </ul>

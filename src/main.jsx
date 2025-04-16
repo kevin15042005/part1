@@ -11,10 +11,11 @@ import Loging from "./Pages/Loging/index.jsx";
 import Nosotros from "./Pages/Nosotros/Index";
 import Compra from "./Pages/Compra/index.jsx";
 
-import CrudNoticias from "./Pages/Crud/Noticia.jsx";
-import CrudNoticiasPintura from "./Pages/Crud/Pintura1.jsx";
-import Shop from "./Pages/Crud/Shop1.jsx";
-
+import CrudNoticias from "./Pages/Crud/Noticia/Noticia.jsx";
+import CrudNoticiasPintura from "./Pages/Crud/Pintura/Pintura1.jsx";
+import Shop from "./Pages/Crud/Shop1/Shop1.jsx";
+import Registrar from "./Pages/Crud/Registrar/Registrar.jsx";
+import Aliados from "./Pages/Crud/Aliados/Aliados.jsx"
 // 🔐 Ruta protegida
 import ProtectedRoute from "./Components/ProtectedRoute/index";
 
@@ -53,6 +54,22 @@ createRoot(document.getElementById("root")).render(
           element={
             <ProtectedRoute>
               <Shop />
+            </ProtectedRoute>
+          }
+        />
+         <Route
+          path="/Registrar"
+          element={
+            <ProtectedRoute>
+              <Registrar />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/Aliados"
+          element={
+            <ProtectedRoute>
+              <Aliados />
             </ProtectedRoute>
           }
         />

@@ -78,3 +78,8 @@ padding: 20px;
     transform: translateY(0);
   }
 }
+.num-Id{
+  display: flex;
+  justify-content: end;
+  font-size: 8px;
+}

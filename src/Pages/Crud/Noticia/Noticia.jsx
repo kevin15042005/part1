@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../../Components/layout/index";
+import Layout from "../../../Components/layout/index";
 import "./Noticia.css"
 
 export default function CrudNoticias() {
@@ -130,13 +130,13 @@ export default function CrudNoticias() {
   return (
     <div className="Menu-Principal">
     <Layout>
-      <div className="Titulo">
+      <div className="Titulo-Noticia">
         <h1>CrudNoticias</h1>
       </div>
 
     <section className="Formularios"> 
       <form onSubmit={handleSubmit}>
-        <h1>Crear Noticia</h1>
+        <h2>Crear Noticia</h2>
         <input
         className="Titulos"
           type="text"
@@ -162,7 +162,7 @@ export default function CrudNoticias() {
 
 {/*Actuailizar Noticia*/}
       <form onSubmit={handleUpdate}>
-        <h1>Actualizar Noticia</h1>
+        <h2>Actualizar Noticia</h2>
         <input
           type="text"
           placeholder="Título"
@@ -191,7 +191,7 @@ export default function CrudNoticias() {
       </form>
 
       <form onSubmit={handleDelete}>
-        <h1>Eliminar Noticia</h1>
+        <h2>Eliminar Noticia</h2>
         <input
           type="text"
           placeholder="Id a eliminar"

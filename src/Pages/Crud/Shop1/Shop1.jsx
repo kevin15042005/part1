@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Layout from "../../Components/layout";
+import Layout from "../../../Components/layout";
 import "./Shop1.css"
 export default function Shop() {
   const [titulo, setTitulo] = useState("");
@@ -128,7 +128,7 @@ export default function Shop() {
   return (
     <div className="Menu-Principal">
     <Layout>
-      <div className="Titulo">
+      <div className="Titulo-Shop">
         <h1>Crud Shop</h1>
       </div>
       <section className="Formularios">

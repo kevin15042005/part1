@@ -167,6 +167,7 @@ export default function Contacto() {
             </div>
             <div className="RedireccionChat">
               <button
+              className="button-contacto"
                 type="button"
                 onClick={() =>
                   window.open(

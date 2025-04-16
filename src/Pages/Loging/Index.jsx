@@ -211,12 +211,6 @@ export default function Login() {
                       Olvidé mi contraseña
                     </a>
                   </div>
-                  <div className="NewUsuario">
-                    Nuevo aquí?{" "}
-                    <a href="#" onClick={() => changeForm("register")}>
-                      Registrarse
-                    </a>
-                  </div>
                 </div>
               </form>
             </div>

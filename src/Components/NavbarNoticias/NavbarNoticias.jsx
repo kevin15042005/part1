@@ -9,8 +9,8 @@ const NavbarNoticia = () => {
       <div className="nav">
         <ul className="nav-menu">
           <li>
-            <Link to="/" className="colorTexto">
-              Inicio
+            <Link to="/Aliados" className="colorTexto">
+              Aliados
             </Link>
           </li>
           <li>
@@ -29,7 +29,12 @@ const NavbarNoticia = () => {
             </Link>
           </li>
           <li>
-            <button onClick={()=>{localStorage.clear()
+            <Link to="/Registrar" className="colorTexto">
+              Registrar
+            </Link>
+          </li>
+          <li>
+            <button className="Cerrar-Sesion" onClick={()=>{localStorage.clear()
               window.location.href="/"
             }}> Cerrar Sesion</button>
           </li>

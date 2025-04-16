@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Layout from "../../Components/layout";
+import Layout from "../../../Components/layout";
 import "./Pintura.css";
 export default function CrudNoticiasPintura() {
   const [titulo, setTitulo] = useState("");
@@ -8,12 +8,12 @@ export default function CrudNoticiasPintura() {
   const [idNoticia, setIdNoticia] = useState("");
   const [noticiasPublicadas, setNoticiasPublicadas] = useState(0);
 
-  const[tituloActualizar,setTituloActualizar]= useState("");
-  const[descripcionActualizar, setDescripcionActualizar]= useState("");
-  const[imagenActualizar,setImagenActualizar]=useState(null);
-  const[idNoticiaActualizar,setIdNoticiaActualizar]=useState("");
+  const [tituloActualizar, setTituloActualizar] = useState("");
+  const [descripcionActualizar, setDescripcionActualizar] = useState("");
+  const [imagenActualizar, setImagenActualizar] = useState(null);
+  const [idNoticiaActualizar, setIdNoticiaActualizar] = useState("");
 
-  const[idNoticiaEliminar,setIdNoticiaEliminar]=useState("");
+  const [idNoticiaEliminar, setIdNoticiaEliminar] = useState("");
 
   //Limpiar los campos
   const limpiarCampos = () => {
@@ -21,21 +21,21 @@ export default function CrudNoticiasPintura() {
     setDescripcion("");
     setImagen(null);
     setIdNoticia("");
-    document.getElementById("fileInput").value = ""; 
+    document.getElementById("fileInput").value = "";
   };
   //Limpiar los campos Actualizr
 
-  const limpiarCamposActualizar=()=>{
+  const limpiarCamposActualizar = () => {
     setTituloActualizar("");
     setDescripcionActualizar("");
     setImagenActualizar(null);
     setIdNoticiaActualizar("");
-    document.getElementById("fileInputActualizar").value = ""; 
+    document.getElementById("fileInputActualizar").value = "";
   };
 
-  const limpiarCampoEliminar=()=>{
+  const limpiarCampoEliminar = () => {
     setIdNoticiaEliminar("");
-  }
+  };
   useEffect(() => {
     const obtenerNoticias = async () => {
       try {
@@ -51,10 +51,10 @@ export default function CrudNoticiasPintura() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    limpiarCampos(); 
-    if(!titulo||!descripcion||!imagen){
-      alert("Ingrese los 3 campos requeridos")
-      return
+    limpiarCampos();
+    if (!titulo || !descripcion || !imagen) {
+      alert("Ingrese los 3 campos requeridos");
+      return;
     }
     if (noticiasPublicadas >= 9) {
       alert("Llegaste a el limite de la publicaicones");
@@ -83,9 +83,9 @@ export default function CrudNoticiasPintura() {
   //Actualizar Noticias
   const handleUpdate = async (e) => {
     e.preventDefault();
-    if(!tituloActualizar||!descripcionActualizar||!imagenActualizar){
-      alert("Ingrese los campos requeridos")
-      return 
+    if (!tituloActualizar || !descripcionActualizar || !imagenActualizar) {
+      alert("Ingrese los campos requeridos");
+      return;
     }
     limpiarCamposActualizar();
     const formData = new FormData();
@@ -111,7 +111,7 @@ export default function CrudNoticiasPintura() {
   //Eliminar Noticias
   const handleDelete = async (e) => {
     e.preventDefault();
-    limpiarCampoEliminar
+    limpiarCampoEliminar;
     try {
       const res = await fetch(
         `http://localhost:8080/pintura/${idNoticiaEliminar}`,
@@ -131,7 +131,7 @@ export default function CrudNoticiasPintura() {
   return (
     <div className="menu-Pricipal-Pintura">
       <Layout>
-        <div className="Titulo">
+        <div className="Titulo-Pintura">
           <h1>Crud Noticias Pintura</h1>
         </div>
         <section className="Fomularios">
@@ -143,6 +143,7 @@ export default function CrudNoticiasPintura() {
               value={titulo}
               onChange={(e) => setTitulo(e.target.value)}
             />
+
             <textarea
               className="Descripcion-Formulario"
               type="text"
@@ -150,7 +151,11 @@ export default function CrudNoticiasPintura() {
               value={descripcion}
               onChange={(e) => setDescripcion(e.target.value)}
             />
-            <input type="file" id="fileInput" onChange={(e) => setImagen(e.target.files[0])} />
+            <input
+              type="file"
+              id="fileInput"
+              onChange={(e) => setImagen(e.target.files[0])}
+            />
             <button type="submit">Crear Noticia</button>
           </form>
 
@@ -169,7 +174,11 @@ export default function CrudNoticiasPintura() {
               value={descripcionActualizar}
               onChange={(e) => setDescripcionActualizar(e.target.value)}
             />
-            <input type="file"id="fileInputActualizar" onChange={(e) => setImagenActualizar(e.target.files[0])} />
+            <input
+              type="file"
+              id="fileInputActualizar"
+              onChange={(e) => setImagenActualizar(e.target.files[0])}
+            />
             <input
               type="text"
               placeholder="ID Noticia"
