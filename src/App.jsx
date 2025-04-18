@@ -1,10 +1,7 @@
 import "./App.css";
 import Layout from "./Components/layout";
 import Footer from "./Components/Footer/footer";
-import Marca1 from "./assetsslider/yamaha.png";
-import Marca2 from "./assetsslider/yamaha2.png";
-import Marca3 from "./assetsslider/ducati.png";
-import Marca4 from "./assetsslider/vitrix.png";
+import Slider from "./Components/Slider/Slider";
 
 function App() {
   return (
@@ -27,9 +24,7 @@ function App() {
 
         <div className="Introduccion_Duart">
           <p>
-            
-              Disfruta de este agradable video donde veras lo que 
-              tenemos para ti
+            Disfruta de este agradable video donde veras lo que tenemos para ti
           </p>
           <iframe
             width="600"
@@ -47,18 +42,7 @@ function App() {
         </div>
         <div className="slider-container">
           <div className="slider">
-            <img src={Marca1} alt="Imagen Yamaha" />
-            <img src={Marca2} alt="Imagen Auteco" />
-            <img src={Marca3} alt="Imagen Ducati" />
-            <img src={Marca4} alt="Imagen Vitrix" />
-            <img src={Marca1} alt="Imagen Yamaha" />
-            <img src={Marca2} alt="Imagen Auteco" />
-            <img src={Marca3} alt="Imagen Ducati" />
-            <img src={Marca4} alt="Imagen Vitrix" />
-            <img src={Marca1} alt="Imagen Yamaha" />
-            <img src={Marca2} alt="Imagen Auteco" />
-            <img src={Marca3} alt="Imagen Ducati" />
-            <img src={Marca4} alt="Imagen Vitrix" />
+            <Slider />
           </div>
         </div>
 

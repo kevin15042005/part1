@@ -7,7 +7,7 @@ import noticiasPinturaRoutes from "./routes/pintura.js";
 
 import ShopRoutes from "./routes/Shop.js";
 import adminRouter from "./routes/admin.js"; 
-
+import AliadosRouter from "./routes/aliados.js"
 const app = express();
 
 // Middlewares
@@ -26,7 +26,7 @@ app.use("/noticias", noticiasRoutes);
 app.use("/pintura", noticiasPinturaRoutes);
 app.use("/Shop", ShopRoutes);
 app.use("/admin", adminRouter); // también corregido
-
+app.use("/api/aliados", AliadosRouter);
 // Iniciar servidor
 app.listen(8080, () => {
   console.log("🚀 Servidor corriendo en http://localhost:8080");
