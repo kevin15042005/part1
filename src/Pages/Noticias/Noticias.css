@@ -1,52 +1,66 @@
-.Menu-Principal-Noticias{
-  
+.Menu-Principal-Noticias {
   align-items: center;
-  background-color: rgba(230,240,255,1);
+  background-color: rgba(230, 240, 255, 1);
 }
-
-.Menu-Titulo{
-    display: flex;
-    justify-content: center;
-    font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
+.Informacion-Noticia h3 span {
+  opacity: 0;
+  display: inline-block;
+  transform: translateY(20px);
+  animation: aparecer 0.35s ease-out forwards;
+}
+@keyframes aparecer {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.Informacion-Noticia h3 {
+  font-size: 20px;
+  font-style: italic;
+}
+.Menu-Titulo {
+  display: flex;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
 }
 
 /*Diseño para los conetenedores de noticias*/
 .grid-container-noticias {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    list-style: none;
-    padding: 0;
-  }
-  
-  .grid-item-noticias {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .grid-item-noticias img {
-    width: 100%;
-    max-width: 400px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin: 0 auto;
-    display: block;
-  }
-  
-  /*Diseño para mejor el fondo*/
-.Informacion-Noticia h3{
-display: flex;
-justify-content: center;
-font-family: Arial, Helvetica, sans-serif;
-font-size: 25px;
-padding: 20px;
-  }
-.Informacion-Noticia p{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.grid-item-noticias {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.grid-item-noticias img {
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 0 auto;
+  display: block;
+}
+
+/*Diseño para mejor el fondo*/
+.Informacion-Noticia h3 {
+  display: flex;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  padding: 20px;
+}
+.Informacion-Noticia p {
   display: flex;
   justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
@@ -78,7 +92,7 @@ padding: 20px;
     transform: translateY(0);
   }
 }
-.num-Id{
+.num-Id {
   display: flex;
   justify-content: end;
   font-size: 8px;

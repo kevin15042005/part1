@@ -2,6 +2,17 @@ import "./App.css";
 import Layout from "./Components/layout";
 import Footer from "./Components/Footer/footer";
 import Slider from "./Components/Slider/Slider";
+import moto from "./assets/perfil.png";
+
+const Bienvenida = () => {
+  const texto = "Bienvenido a Duart-Studio";
+  const letrasAnimadas = texto.split("").map((letra, index) => (
+    <span key={index} style={{ animationDelay: `${index * 0.05}s` }}>
+      {letra === " " ? "\u00A0" : letra}
+    </span>
+  ));
+    return <h1>{letrasAnimadas}</h1>;
+};
 
 function App() {
   return (
@@ -9,17 +20,22 @@ function App() {
       <Layout />
       <div className="General">
         <div className="BienvenidaApp">
-          <h1>Bienvenido a Duart-Studio</h1>
+          <h1><Bienvenida/></h1>
         </div>
-        <div className="InformacionRelevante">
-          <h2>Información Relevante</h2>
+        <div className="Informacion-RelevanteGeneral">
+          <section className="InformacionRelevante">
+            <h2>Información Relevante</h2>
 
-          <p>
-            Esta es una compañia dedicada y apasionada a las motos donde veran
-            todo lo relacionado a la pintura accerios y diseño exclusivos de
-            motos fabricado en pintura de la mas alta calidad si quieres ver mas
-            navega y descubre que tenemos para ti{" "}
-          </p>
+            <p>
+              Esta es una compañia dedicada y apasionada a las motos donde veran
+              todo lo relacionado a la pintura accerios y diseño exclusivos de
+              motos fabricado en pintura de la mas alta calidad si quieres ver
+              mas navega y descubre que tenemos para ti{" "}
+            </p>
+          </section>
+          <section className="Imagen-Relevante">
+            <img src={moto} alt="" />
+          </section>
         </div>
 
         <div className="Introduccion_Duart">

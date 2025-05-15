@@ -1,7 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../../Components/layout";
 import Footer from "../../Components/Footer/footer";
-import "./Shop.css"
+import "./Shop.css";
+
+const BienvenidaCompra = () => {
+  const texto = "Acá se publicarán los artículos";
+  const letraAnimada = texto.split("").map((letra, index) => (
+    <span key={index} style={{ animationDelay: `${index * 0.05}s` }}>
+      {letra === " " ? "\u00A0" : letra}
+    </span>
+  ));
+  return <h1>{letraAnimada}</h1>;
+};
+
 export default function Shop1() {
   const [shop, setShop] = useState([]);
 
@@ -17,7 +28,7 @@ export default function Shop1() {
       <div id="main-container">
         <Layout />
         <div className="Informacion-Pintura">
-          <h3>Acá se publicarán los artículos</h3>
+          <h3><BienvenidaCompra/></h3>
           <p className="Informacion-Pintura-P">
             Aquí veremos reflejados los diseños que hemos creado. ¡Disfruta
             estas maravillosas motos diseñadas con la pasión de Duart-Studio!

@@ -96,16 +96,16 @@ export default function Login() {
       if (res.ok) {
         alert("Inicio de sesión exitoso");
         localStorage.setItem("user", JSON.stringify(data.usuario));
-        localStorage.setItem("isLoging","true")
+        localStorage.setItem("isLoging", "true");
         navigate("/CrudNoticias");
       } else {
         alert(data.message || "Credenciales inválidas");
-        localStorage.setItem("isLogign","false")
+        localStorage.setItem("isLogign", "false");
       }
     } catch {
       console.log("Error al iniciar sesión");
       alert("Error al iniciar sesión");
-      localStorage.setItem("isLogign","false")
+      localStorage.setItem("isLogign", "false");
     }
   };
 
@@ -216,7 +216,6 @@ export default function Login() {
             </div>
           )}
 
-         
           {/* Recuperar Contraseña */}
           {currentForm === "forgotPassword" && (
             <div className="Menu-Password">

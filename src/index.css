@@ -2,15 +2,15 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: Poppins, sans-serif;
-  height: 100%; /* Asegura que el body ocupe toda la altura del viewport */
+  height: 100%; 
 }
 
 #main-container {
-  min-height: 100vh; /* Hace que el contenedor principal ocupe al menos toda la altura del viewport */
+  min-height: 100vh;
   display: flex;
-  flex-direction: column; /* Organiza los elementos en una columna */
+  flex-direction: column; 
 }
 
 footer {
-  margin-top: auto; /* Empuja el footer al final del contenedor */
+  margin-top: auto; 
 }

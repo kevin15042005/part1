@@ -1,3 +1,16 @@
+.Informacion-Pintura h3 span{
+  opacity: 0;
+  display: inline-block;
+  transform: translateY(20px);
+  animation: aparecer 0.3s ease-out forwards;
+}
+@keyframes aparecer{
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .grid-container-shop {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(300px, 1fr));

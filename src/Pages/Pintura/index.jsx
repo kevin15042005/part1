@@ -2,6 +2,17 @@ import React, { useEffect, useState } from "react";
 import Layout from "../../Components/layout";
 import Footer from "../../Components/Footer/footer";
 import "./Pintura.css";
+
+const BienvenidaPintura = () => {
+  const texto =
+    "Diseños creados";
+  const letrasAnimadas = texto.split("").map((letra, index) => (
+    <span key={index}  className="letra" style={{ animationDelay: `${index * 0.05}s` }}>{letra===" " ? "\u00A0":letra}</span>
+  ));
+  return <h1>{letrasAnimadas}</h1>
+};
+
+
 export default function Pintura() {
   const [noticiasPintura, setNoticiasPintura] = useState([]);
 
@@ -17,10 +28,7 @@ export default function Pintura() {
         <Layout />
         <div className="Contenido-Principal">
           <div className="Informacion-Pintura">
-            <h3>
-              Veremos la informacion relevante que diseños de pinutras se han
-              creados{" "}
-            </h3>
+            <h3><BienvenidaPintura/></h3>
             <p>
               Aca veremos reflejado que dieseños hemos creado asi que disfruta
               de esta maravillosa motos diseñadas con la pasion de Duart-Studio{" "}

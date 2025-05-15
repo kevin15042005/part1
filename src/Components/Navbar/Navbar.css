@@ -1,54 +1,54 @@
-* {
-    box-sizing: border-box;
-  }
+.Fondo-Navbar {
+  background: linear-gradient(to bottom, #19d, rgb(7 33 73));
+  height: 12rem;
+}
 
-.nav{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    color: black;
-    background: black;
-    height: 12rem;
-    border-radius: 5px;
+.contenedor {
+  position: relative;
+  width: 100%;
+  height: 300px; /* o la altura que quieras */
+  background-image: url('ruta/a/tu/imagen.jpg');
+  background-position: center; /* centrar horizontal y vertical */
+  background-repeat: no-repeat;
+  background-size: cover; /* cubre todo el contenedor, puede recortar */
+  z-index: 0; /* fondo */
 }
-.nav-log{
-font-family: Outfit;
-font-size: 30px;
-gap:20px
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  background: rgba(0, 0, 0, 0.845);
+  height: 8rem;
+  border-radius: 40px;
+  margin: 15px 165px;
+  padding: 0 20px;
+  position: fixed;
+  z-index: 1000;
+  background-size: cover;
 }
+
 .nav-menu {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap: 90px;
-}
-.nav-menu li{
-    padding: 10px 0px;
-    transition:  0.3s ease-in-out;
-    border-radius: 10px;
-    color: #004e9c;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
+.nav-menu li {
+  padding: 10px 0;
+  transition: 0.3s ease-in-out;
+  border-radius: 10px;
+}
 
-.navLogo{
-    width: 100px;
-    border-radius: 50px;
+.navLogo {
+  width: 100px;
+  border-radius: 50%;
 }
-.nav-contact{
-border-radius: 50px;
-padding: 10px 38px;
-background: #fff;
-color:#004e9c;
-}
-.nav .ColoresFondo{
-color:rgba(red, green, blue, alpha)
-}
-.colorTexto{
-    color: white;
-    list-style: none;
-    text-decoration: none;
-    
-}
-.nav-menu .ColoresFondo{
-    list-style: none;
+
+.colorTexto {
+  color: white;
+  text-decoration: none;
 }

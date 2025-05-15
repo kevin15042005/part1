@@ -2,6 +2,15 @@ import React, { useState, useEffect } from "react";
 import Layout from "../../Components/layout";
 import Footer from "../../Components/Footer/footer";
 import "./Noticias.css";
+
+const BienvenidaNoticia = () => {
+  const texto = "Noticias relevante "
+  const letraAnimada = texto.split("").map((letra, index) => (
+    <span key={index} className="letra" style={{ animationDelay: `${index * 0.05}s` }}>{ letra === " " ? "\u00A0":letra}</span>
+  ))
+  return <h1>{ letraAnimada}</h1>
+}
+
 export default function Noticias() {
   const [noticias, setNoticias] = useState([]);
 
@@ -17,7 +26,7 @@ export default function Noticias() {
         <Layout />
         <div className="Menu-Principal-Noticias">
           <div className="Informacion-Noticia">
-            <h3>Noticias relevante o eventos en los proximos dias </h3>
+            <h3><BienvenidaNoticia/> </h3>
             <p>
               No te pierdas los detalles respecto sobre los siguientes eventos{" "}
             </p>
