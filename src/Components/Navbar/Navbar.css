@@ -1,24 +1,33 @@
 .Fondo-Navbar {
-  background: linear-gradient(to bottom, #19d, rgb(7 33 73));
+  background: linear-gradient(to bottom,  rgb(229, 62, 232), rgb(7 33 73));
   height: 12rem;
+}
+.colorTexto {
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-menu-active {
+  max-height: 500px; /* Ajusta según tu contenido */
+  opacity: 1;
 }
 
 .contenedor {
   position: relative;
   width: 100%;
-  height: 300px; /* o la altura que quieras */
-  background-image: url('ruta/a/tu/imagen.jpg');
-  background-position: center; /* centrar horizontal y vertical */
+  height: 300px; 
+  background-image: url("ruta/a/tu/imagen.jpg");
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover; /* cubre todo el contenedor, puede recortar */
-  z-index: 0; /* fondo */
+  background-size: cover; 
+  z-index: 0; 
 }
 .nav {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5rem;
-  background: rgba(0, 0, 0, 0.845);
+  border: solid 0.2px #fff;
+  background: linear-gradient(to bottom, rgb(229, 62, 232), rgb(7, 33, 73));
   height: 8rem;
   border-radius: 40px;
   margin: 15px 165px;
@@ -35,12 +44,17 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  transition: 0.3s ease;
 }
 
-.nav-menu li {
-  padding: 10px 0;
-  transition: 0.3s ease-in-out;
-  border-radius: 10px;
+.nav-menu li{
+  padding:5px 4px;
+  border-radius: 15px;
+  box-shadow: inset 0 0 0 0 rgb(0, 213, 255);
+  transition: ease-out 1.2s;
+}
+.nav-menu li:hover {
+  box-shadow: inset 50px 50px 50px 0 rgb(10, 0, 103);
 }
 
 .navLogo {

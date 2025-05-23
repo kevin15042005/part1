@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Layout from "../../Components/layout";
 import Footer from "../../Components/Footer/footer";
 import "./Shop.css";
-
+import ScrollAnimadoCrud  from "../../Components/ScrollAnimationCrud/index";
 const BienvenidaCompra = () => {
   const texto = "Acá se publicarán los artículos";
   const letraAnimada = texto.split("").map((letra, index) => (
@@ -28,18 +28,19 @@ export default function Shop1() {
       <div id="main-container">
         <Layout />
         <div className="Informacion-Pintura">
-          <h3><BienvenidaCompra/></h3>
+          <div className="titulo-Compra"><BienvenidaCompra/></div>
           <p className="Informacion-Pintura-P">
-            Aquí veremos reflejados los diseños que hemos creado. ¡Disfruta
-            estas maravillosas motos diseñadas con la pasión de Duart-Studio!
-          </p>
+            En esta sesion veras reflejado que diseño se han relializado,
+             a que motos  tipo de moto y de que nos dio inspircacion
+          </p> 
         </div>
 
         <div className="Container-Artiuclo">
           <div className="Contenedor-principal">
             <ul className="grid-container-shop">
-              {shop.map((articulo) => (
-                <li key={articulo.id_Shop} className="grid-item-shop">
+              {shop.map((articulo, index) => (
+                <ScrollAnimadoCrud key={articulo.id_Shop} delay={index*0.2}>
+                <li className="grid-item-shop">
                   <h2>{articulo.nombre_Shop}</h2>
                   <p>{articulo.contenido_Shop}</p>
                   {articulo.cover && (
@@ -52,7 +53,8 @@ export default function Shop1() {
                   <h3>${articulo.precio_Shop}</h3>
                   <button>Dirigir a productos</button>
                   <span className="num-Id">{articulo.id_Shop}</span>
-                </li>
+                  </li>
+                  </ScrollAnimadoCrud>
               ))}
             </ul>
           </div>

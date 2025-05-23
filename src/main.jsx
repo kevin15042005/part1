@@ -5,8 +5,8 @@ import App from "./App.jsx";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import Contacto from "./Pages/Contacto";
-import Pintura from "./Pages/Pintura";
-import Noticias from "./Pages/Noticias";
+import Pintura from "./Pages/Pintura/Pintura.jsx";
+import Noticias from "./Pages/Noticias/Noticia.jsx";
 import Loging from "./Pages/Loging/index.jsx";
 import Nosotros from "./Pages/Nosotros/Index";
 import Compra from "./Pages/Compra/index.jsx";

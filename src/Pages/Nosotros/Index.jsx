@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../../Components/layout";
 import Footer from "../../Components/Footer/footer";
 import "./Nosotros.css";
-import ScrollAnimation from"../../Components/ScrollAnimation/index"
+import ScrollAnimation from"../../Components/ScrollAnimation/index.jsx"
 export default function Ubicacion() {
   return (
     <div id="main-container">

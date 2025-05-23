@@ -25,28 +25,37 @@ router.get("/", (req, res) => {
 });
 
 // Crear una nueva noticia Pintura
-router.post("/crear", upload.single("cover"), (req, res) => {
+router.post("/crear", upload.array("cover"), (req, res) => {
   const { nombre_Noticia_Pintura, contenido_Noticia_Pintura } = req.body;
-  const cover = req.file?.filename || null;
+
+  const coverFiles = req.files?.map(file => file.filename);
+  
+  const cover = coverFiles?.join(",") || null; 
+
   const q = `
     INSERT INTO Noticias_Pintura (
-  nombre_Noticia_Pintura,
-  fecha_Publicacion,
-  contenido_Noticia_Pintura,
-  id_Administrador,
-  cover
-)
-    VALUES (?, NOW(), ?, ?, ?)`;
+      nombre_Noticia_Pintura,
+      fecha_Publicacion,
+      contenido_Noticia_Pintura,
+      id_Administrador,
+      cover
+    )
+    VALUES (?, NOW(), ?, ?, ?)
+  `;
 
   db.query(
     q,
     [nombre_Noticia_Pintura, contenido_Noticia_Pintura, 1, cover],
     (err) => {
-      if (err) return res.status(500).json({ error: "Error al insertar noticia" });
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ error: "Error al insertar noticia" });
+      }
       return res.json({ message: "✅ Noticia publicada correctamente" });
     }
   );
 });
+
 
 // Actualizar una noticia
 router.put("/", upload.single("cover"), (req, res) => {

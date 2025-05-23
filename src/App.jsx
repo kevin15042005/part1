@@ -2,16 +2,38 @@ import "./App.css";
 import Layout from "./Components/layout";
 import Footer from "./Components/Footer/footer";
 import Slider from "./Components/Slider/Slider";
-import moto from "./assets/perfil.png";
+import moto from "./assets/cf2.jpeg";
 
 const Bienvenida = () => {
-  const texto = "Bienvenido a Duart-Studio";
+  const texto = "Bienvenido a ";
+  const nombre = "Duart-Studio";
+
   const letrasAnimadas = texto.split("").map((letra, index) => (
-    <span key={index} style={{ animationDelay: `${index * 0.05}s` }}>
+    <span
+      key={`texto-${index}`}
+      className="letra"
+      style={{ animationDelay: `${index * 0.05}s` }}
+    >
       {letra === " " ? "\u00A0" : letra}
     </span>
   ));
-    return <h1>{letrasAnimadas}</h1>;
+
+  const nombreAnimado = nombre.split("").map((letra, index) => (
+    <span
+      key={`nombre-${index}`}
+      className="letra nombre"
+      style={{ animationDelay: `${(texto.length + index) * 0.05}s` }}
+    >
+      {letra === " " ? "\u00A0" : letra}
+    </span>
+  ));
+
+  return (
+    <h1>
+      {letrasAnimadas}
+      {nombreAnimado}
+    </h1>
+  );
 };
 
 function App() {
@@ -20,14 +42,16 @@ function App() {
       <Layout />
       <div className="General">
         <div className="BienvenidaApp">
-          <h1><Bienvenida/></h1>
+          <div className="titulo-Inicio">
+            <Bienvenida />
+          </div>
         </div>
         <div className="Informacion-RelevanteGeneral">
           <section className="InformacionRelevante">
             <h2>Información Relevante</h2>
 
             <p>
-              Esta es una compañia dedicada y apasionada a las motos donde veran
+              Somos una compañia dedicada y apasionada a las motos donde veran
               todo lo relacionado a la pintura accerios y diseño exclusivos de
               motos fabricado en pintura de la mas alta calidad si quieres ver
               mas navega y descubre que tenemos para ti{" "}

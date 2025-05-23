@@ -1,20 +1,19 @@
 @keyframes aparecerDesdeDerecha {
-    from {
-      transform: translateX(60px);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  
-  .scroll-item {
+  from {
+    transform: translateX(60px);
     opacity: 0;
-    transform: translateX(60px); 
   }
-  
-  .scroll-item.visible {
-    animation: aparecerDesdeDerecha 1s ease-out forwards;
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
-  
+}
+
+.scroll-item-derecha {
+  opacity: 0;
+  transform: translateX(60px);
+}
+
+.scroll-item-derecha.visible {
+  animation: aparecerDesdeDerecha 1s ease-out forwards;
+}

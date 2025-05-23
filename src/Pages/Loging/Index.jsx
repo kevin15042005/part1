@@ -14,9 +14,7 @@ export default function Login() {
     rol: "Administrador",
   });
 
-  const [currentForm, setCurrentForm] = useState(() => {
-    return localStorage.getItem("currentForm") || "loging";
-  });
+ const [currentForm, setCurrentForm] = useState("loging");
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -180,7 +178,7 @@ export default function Login() {
                   <input
                     type="text"
                     className="field"
-                    placeholder="Email"
+                    placeholder="Correo"
                     name="usuario"
                     required
                   />
@@ -190,7 +188,7 @@ export default function Login() {
                   <input
                     type={showPassword ? "text" : "password"}
                     className="field"
-                    placeholder="Password"
+                    placeholder="Contraseña"
                     name="contraseña"
                     required
                   />
@@ -226,7 +224,7 @@ export default function Login() {
                   <input
                     type="text"
                     className="field"
-                    placeholder="correo"
+                    placeholder="Correo"
                     name="correo"
                     required
                   />
@@ -234,7 +232,7 @@ export default function Login() {
                   <input
                     type={showPassword ? "text" : "password"}
                     className="field"
-                    placeholder="Antigua contraseña"
+                    placeholder="Contraseña Antigua"
                     name="forgetPassword"
                     required
                   />
@@ -244,7 +242,7 @@ export default function Login() {
                   <input
                     type={showPassword ? "text" : "password"}
                     className="field"
-                    placeholder="Nueva contraseña"
+                    placeholder="Contraseña Nueva"
                     name="newPassword"
                     required
                   />

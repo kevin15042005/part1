@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../../../Components/layout/index";
-import "./Noticia.css"
+import "./Noticia.css";
 
 export default function CrudNoticias() {
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
-  const [imagen, setImagen] = useState(null);
+  const [imagen, setImagen] = useState([]);
   const [idNoticia, setIdNoticia] = useState("");
   const [noticiasPublicadas, setNoticiasPublicadas] = useState(0);
 
@@ -14,7 +14,6 @@ export default function CrudNoticias() {
   const [imagenActualizar, setImagenActualizar] = useState(null);
   const [idNoticiaActualizar, setIdNoticiaActualizar] = useState("");
 
-
   const [idNoticiaEliminar, setIdNoticiaEliminar] = useState("");
 
   //Limpiar los campos apenas se inserte un valor
@@ -22,55 +21,58 @@ export default function CrudNoticias() {
   const limpiarCampos = () => {
     setTitulo("");
     setDescripcion("");
-    setImagen(null);
+    setImagen([]);
     setIdNoticia("");
-    document.getElementById("fileInput").value="";
+    document.getElementById("fileInput").value = "";
   };
-  const limpiarCamposActualizar = ()=>{
+  const limpiarCamposActualizar = () => {
     setDescripcionActualizar("");
     setDescripcionActualizar("");
     setImagenActualizar(null);
     setIdNoticiaActualizar("");
-    document.getElementById("fileInputActualizar").value="";
-  }
-  const limpiarCamposEliminar=()=>{
+    document.getElementById("fileInputActualizar").value = "";
+  };
+  const limpiarCamposEliminar = () => {
     setIdNoticiaEliminar("");
-  }
+  };
   useEffect(() => {
     const obtenerNoticias = async () => {
       try {
         const res = await fetch("http://localhost:8080/noticias");
         const data = await res.json();
-        setNoticiasPublicadas(data.length); 
+        setNoticiasPublicadas(data.length);
       } catch (err) {
         console.error("Error al obtener las noticias:", err);
       }
     };
 
     obtenerNoticias();
-  }, []); 
-
-  
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (noticiasPublicadas >= 9) {
-      alert("Ya llegaste al límite de 9 noticias publicadas.Elimina o Actualiza");
+      alert(
+        "Ya llegaste al límite de 9 noticias publicadas.Elimina o Actualiza"
+      );
       return;
     }
 
-    if(!titulo||!descripcion||!imagen){
-      alert("Ingresa los 3 campos")
-      return
+    if (!titulo || !descripcion || imagen.length === 0) {
+      alert("Ingresa los 3 campos");
+      return;
     }
+
     const formData = new FormData();
     formData.append("nombre_Noticias", titulo);
     formData.append("contenido_Noticia", descripcion);
-    formData.append("cover", imagen);
+    imagen.forEach((imagen) => {
+      formData.append("cover", imagen);
+    });
 
     try {
-      const res = await fetch("http://localhost:8080/noticias", {
+      const res = await fetch("http://localhost:8080/noticias/crear", {
         method: "POST",
         body: formData,
       });
@@ -83,12 +85,12 @@ export default function CrudNoticias() {
       alert("Error al crear la noticia");
     }
   };
-//Actualizar Noticia
+  //Actualizar Noticia
   const handleUpdate = async (e) => {
     e.preventDefault();
-    if(!tituloActualizar||!descripcionActualizar||!imagenActualizar){
-      alert("Ingresa los 3 campos")
-      return
+    if (!tituloActualizar || !descripcionActualizar || !imagenActualizar) {
+      alert("Ingresa los 3 campos");
+      return;
     }
     limpiarCamposActualizar();
 
@@ -111,13 +113,16 @@ export default function CrudNoticias() {
       alert("Error al actualizar la noticia");
     }
   };
-//Eliminar Noticia
+  //Eliminar Noticia
   const handleDelete = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:8080/noticias/${idNoticiaEliminar}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `http://localhost:8080/noticias/${idNoticiaEliminar}`,
+        {
+          method: "DELETE",
+        }
+      );
       const data = await res.json();
       alert(data.message || "Noticia eliminada");
       limpiarCamposEliminar();
@@ -129,79 +134,85 @@ export default function CrudNoticias() {
 
   return (
     <div className="Menu-Principal">
-    <Layout>
-      <div className="Titulo-Noticia">
-        <h1>CrudNoticias</h1>
-      </div>
+      <Layout>
+        <div className="Titulo-Noticia">
+          <h1>CrudNoticias</h1>
+        </div>
 
-    <section className="Formularios"> 
-      <form onSubmit={handleSubmit}>
-        <h2>Crear Noticia</h2>
-        <input
-        className="Titulos"
-          type="text"
-          placeholder="Título"
-          value={titulo}
-          onChange={(e) => setTitulo(e.target.value)}
-          autoComplete="off"
-          />
-        <textarea
-        className="Descripcion-Formulario1"
-          type="text"
-          placeholder="Descripción"
-          value={descripcion}
-          onChange={(e) => setDescripcion(e.target.value)}
-          autoComplete="off"
+        <section className="Formularios">
+          <form onSubmit={handleSubmit}>
+            <h2>Crear Noticia</h2>
+            <input
+              className="Titulos"
+              type="text"
+              placeholder="Título"
+              value={titulo}
+              onChange={(e) => setTitulo(e.target.value)}
+              autoComplete="off"
+            />
+            <textarea
+              className="Descripcion-Formulario1"
+              type="text"
+              placeholder="Descripción"
+              value={descripcion}
+              onChange={(e) => setDescripcion(e.target.value)}
+              autoComplete="off"
+            />
+            <input
+              className="Hola"
+              type="file"
+              id="fileInput"
+              multiple
+              onChange={(e) => setImagen(Array.from(e.target.files))}
+            />
 
-        />
-        <input  className="Hola"type="file" id= "fileInput" onChange={(e) => setImagen(e.target.files[0])} />
+            <button type="submit">Crear Noticia</button>
+          </form>
 
-        <button type="submit">Crear Noticia</button>
-      </form>
+          {/*Actuailizar Noticia*/}
+          <form onSubmit={handleUpdate}>
+            <h2>Actualizar Noticia</h2>
+            <input
+              type="text"
+              placeholder="Título"
+              value={tituloActualizar}
+              onChange={(e) => setTituloActualizar(e.target.value)}
+              autoComplete="off"
+            />
+            <textarea
+              className="Descripcion-Formulario1"
+              type="text"
+              placeholder="Descripción"
+              value={descripcionActualizar}
+              onChange={(e) => setDescripcionActualizar(e.target.value)}
+              autoComplete="off"
+            />
+            <input
+              type="file"
+              id="fileInputActualizar"
+              onChange={(e) => setImagenActualizar(e.target.files[0])}
+            />
+            <input
+              type="text"
+              placeholder="ID Noticia"
+              value={idNoticiaActualizar}
+              onChange={(e) => setIdNoticiaActualizar(e.target.value)}
+            />
+            <button type="submit">Actualizar</button>
+          </form>
 
-
-{/*Actuailizar Noticia*/}
-      <form onSubmit={handleUpdate}>
-        <h2>Actualizar Noticia</h2>
-        <input
-          type="text"
-          placeholder="Título"
-          value={tituloActualizar}
-          onChange={(e) => setTituloActualizar(e.target.value)}
-          autoComplete="off"
-
-        />
-        <textarea
-         className="Descripcion-Formulario1"
-          type="text"
-          placeholder="Descripción"
-          value={descripcionActualizar}
-          onChange={(e) => setDescripcionActualizar(e.target.value)}
-          autoComplete="off"
-
-        />
-        <input type="file" id="fileInputActualizar"onChange={(e) => setImagenActualizar(e.target.files[0])} />
-        <input
-          type="text"
-          placeholder="ID Noticia"
-          value={idNoticiaActualizar}
-          onChange={(e) => setIdNoticiaActualizar(e.target.value)}
-        />
-        <button type="submit">Actualizar</button>
-      </form>
-
-      <form onSubmit={handleDelete}>
-        <h2>Eliminar Noticia</h2>
-        <input
-          type="text"
-          placeholder="Id a eliminar"
-          value={idNoticiaEliminar  }
-          onChange={(e) => setIdNoticiaEliminar(e.target.value)}
-        />
-        <button type="submit">Eliminar</button>
-      </form>
-      </section>
-    </Layout>
+          <form onSubmit={handleDelete}>
+            <h2>Eliminar Noticia</h2>
+            <input
+              type="text"
+              placeholder="Id a eliminar"
+              value={idNoticiaEliminar}
+              onChange={(e) => setIdNoticiaEliminar(e.target.value)}
+            />
+            <button type="submit">Eliminar</button>
+          </form>
+        </section>
+      </Layout>
     </div>
   );
 }

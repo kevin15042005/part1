@@ -4,7 +4,7 @@ import "./Pintura.css";
 export default function CrudNoticiasPintura() {
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
-  const [imagen, setImagen] = useState(null);
+  const [imagen, setImagen] = useState([]);
   const [idNoticia, setIdNoticia] = useState("");
   const [noticiasPublicadas, setNoticiasPublicadas] = useState(0);
 
@@ -19,7 +19,7 @@ export default function CrudNoticiasPintura() {
   const limpiarCampos = () => {
     setTitulo("");
     setDescripcion("");
-    setImagen(null);
+    setImagen([]);
     setIdNoticia("");
     document.getElementById("fileInput").value = "";
   };
@@ -46,6 +46,7 @@ export default function CrudNoticiasPintura() {
         console.error("Error al obtener noticias", err);
       }
     };
+    
     obtenerNoticias();
   }, []);
 
@@ -63,7 +64,10 @@ export default function CrudNoticiasPintura() {
     const formData = new FormData();
     formData.append("nombre_Noticia_Pintura", titulo);
     formData.append("contenido_Noticia_Pintura", descripcion);
-    formData.append("cover", imagen);
+    imagen.forEach((imagen, index) => {
+      formData.append("cover", imagen);
+    })
+    
 
     //Subir Noticias
     try {
@@ -111,7 +115,7 @@ export default function CrudNoticiasPintura() {
   //Eliminar Noticias
   const handleDelete = async (e) => {
     e.preventDefault();
-    limpiarCampoEliminar;
+    limpiarCampoEliminar();
     try {
       const res = await fetch(
         `http://localhost:8080/pintura/${idNoticiaEliminar}`,
@@ -154,7 +158,8 @@ export default function CrudNoticiasPintura() {
             <input
               type="file"
               id="fileInput"
-              onChange={(e) => setImagen(e.target.files[0])}
+              multiple
+              onChange={(e) => setImagen(Array.from(e.target.files))}
             />
             <button type="submit">Crear Noticia</button>
           </form>

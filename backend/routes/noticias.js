@@ -9,7 +9,8 @@ const router = express.Router();
 // Multer config
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, "uploads/"),
-  filename: (req, file, cb) => cb(null, Date.now() + path.extname(file.originalname)),
+  filename: (req, file, cb) =>
+    cb(null, Date.now() + path.extname(file.originalname)),
 });
 const upload = multer({ storage });
 
@@ -23,21 +24,31 @@ router.get("/", (req, res) => {
 });
 
 // Crear noticia
-router.post("/", upload.single("cover"), (req, res) => {
-  const { nombre_Noticias, contenido_Noticia } = req.body;
-  const cover = req.file?.filename || null;
-  
-  if(!nombre_Noticias||!contenido_Noticia||!cover){
-    return res.status(400).json({message:"Todos los campos son obligatorios"})
-  }
+router.post("/crear", upload.array("cover"), (req, res) => {
+  try {
+    const { nombre_Noticias, contenido_Noticia } = req.body;
+    const coverFiles = req.files?.map((file) => file.filename) || [];
 
-  const q = `INSERT INTO noticias (nombre_Noticias, contenido_Noticia, fecha_Publicacion, id_Administrador, cover) VALUES (?, ?, NOW(), ?, ?)`;
-  db.query(q, [nombre_Noticias, contenido_Noticia, 1, cover], (err) => {
-    
-    if (err) return res.status(500).json({ error: "Error al insertar noticia" });
-    return res.json({ message: "✅ Noticia publicada correctamente" });
-  });
+    if (!nombre_Noticias || !contenido_Noticia || coverFiles.length === 0) {
+      return res.status(400).json({ message: "Todos los campos son obligatorios" });
+    }
+
+    const coverFile = coverFiles[0];
+    const q = `INSERT INTO noticias (nombre_Noticias, contenido_Noticia, fecha_Publicacion, id_Administrador, cover) VALUES (?, ?, NOW(), ?, ?)`;
+
+    db.query(q, [nombre_Noticias, contenido_Noticia, 1, coverFile], (err) => {
+      if (err) {
+        console.error("Error en query:", err);
+        return res.status(500).json({ error: "Error al insertar noticia" });
+      }
+      return res.json({ message: "✅ Noticia publicada correctamente" });
+    });
+  } catch (error) {
+    console.error("Error en ruta /crear:", error);
+    res.status(500).json({ error: "Error interno del servidor" });
+  }
 });
+
 
 // Actualizar noticia
 router.put("/", upload.single("cover"), (req, res) => {
@@ -53,8 +64,10 @@ router.put("/", upload.single("cover"), (req, res) => {
     : [nombre_Noticias, contenido_Noticia, id_Noticia];
 
   db.query(q, valores, (err, result) => {
-    if (err) return res.status(500).json({ error: "Error al actualizar noticia" });
-    if (result.affectedRows === 0) return res.status(404).json({ message: "❌ Noticia no encontrada" });
+    if (err)
+      return res.status(500).json({ error: "Error al actualizar noticia" });
+    if (result.affectedRows === 0)
+      return res.status(404).json({ message: "❌ Noticia no encontrada" });
     return res.json({ message: "✅ Noticia actualizada correctamente" });
   });
 });
@@ -66,13 +79,15 @@ router.delete("/:id_Noticia", (req, res) => {
 
   db.query(getImageQuery, [id_Noticia], (err, results) => {
     if (err) return res.status(500).json({ error: "Error buscando imagen" });
-    if (!results.length) return res.status(404).json({ message: "❌ Noticia no encontrada" });
+    if (!results.length)
+      return res.status(404).json({ message: "❌ Noticia no encontrada" });
 
     const imagen = results[0].cover;
     const deleteQuery = `DELETE FROM noticias WHERE id_Noticia=?`;
 
     db.query(deleteQuery, [id_Noticia], (err) => {
-      if (err) return res.status(500).json({ error: "Error al eliminar noticia" });
+      if (err)
+        return res.status(500).json({ error: "Error al eliminar noticia" });
       if (imagen) fs.unlink(`uploads/${imagen}`, () => {});
       return res.json({ message: "✅ Noticia eliminada correctamente" });
     });
@@ -80,5 +95,3 @@ router.delete("/:id_Noticia", (req, res) => {
 });
 
 export default router;
-
-

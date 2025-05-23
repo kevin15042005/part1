@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./Scroll.css"; // aquí pondrás los estilos
+import "./Scroll.css";
 
 const ScrollAnimado = ({ children, className = "" }) => {
   const ref = useRef();
@@ -9,7 +9,7 @@ const ScrollAnimado = ({ children, className = "" }) => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         setVisible(true);
-        observer.unobserve(entry.target); // para que no se repita
+        observer.unobserve(entry.target);
       }
     });
 
@@ -20,7 +20,7 @@ const ScrollAnimado = ({ children, className = "" }) => {
   return (
     <div
       ref={ref}
-      className={`scroll-item ${visible ? "visible" : ""} ${className}`}
+      className={`scroll-item-derecha ${visible ? "visible" : ""} ${className}`}
     >
       {children}
     </div>
