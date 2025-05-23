@@ -9,7 +9,7 @@ const BienvenidaNoticia = () => {
   const letraAnimada = texto.split("").map((letra, index) => (
     <span
       key={index}
-      className="letra"
+      className="letraNoticia"
       style={{ animationDelay: `${index * 0.05}s` }}
     >
       {letra === " " ? "\u00A0" : letra}
@@ -17,18 +17,20 @@ const BienvenidaNoticia = () => {
   ));
   return <h1>{letraAnimada}</h1>;
 };
-
 function CarruselImagenes({ cover, nombre_Noticias, contenido_Noticia }) {
   const images = cover ? cover.split(",") : [];
   const [indexActual, setIndexActual] = useState(0);
 
   useEffect(() => {
-    const intervalo = setIndexActual(() => {
+    const intervalo = setInterval(() => {
       setIndexActual((prev) => (prev + 1) % images.length);
     }, 3000);
+
     return () => clearInterval(intervalo);
   }, [images.length]);
+
   if (images.length === 0) return null;
+
   return (
     <div className="carrusel-container">
       <div className="imagen-contenedor">
@@ -36,9 +38,9 @@ function CarruselImagenes({ cover, nombre_Noticias, contenido_Noticia }) {
           <img
             key={idx}
             src={`http://localhost:8080/uploads/${img}`}
-            alt={`${nombre_Noticias}- imagen ${idx + 1}`}
-            className={`imagen-fondo${
-              idx == indexActual ? "visible" : "oculto"
+            alt={`${nombre_Noticias} - imagen ${idx + 1}`}
+            className={`imagen-fondo ${
+              idx === indexActual ? "visible" : "oculto"
             }`}
           />
         ))}
@@ -50,7 +52,6 @@ function CarruselImagenes({ cover, nombre_Noticias, contenido_Noticia }) {
     </div>
   );
 }
-
 export default function Noticias() {
   const [noticias, setNoticias] = useState([]);
 
@@ -69,23 +70,23 @@ export default function Noticias() {
             <div className="titulo-Bienvenida">
               <BienvenidaNoticia />{" "}
             </div>
-            <p>
-              No te pierdas los detalles respecto sobre los siguientes eventos{" "}
-            </p>
+            <div className="Texto-Informativo-Noticia"><p >
+              No te pierdas los detalles respecto sobre los siguientes eventos ,
+              noticias de lo que pasa en la motovelocidad y en los eventos
+              aliados de nuestra comunidad{" "}
+            </p></div>
+            
           </div>
           <div className="Container-Noticia">
             <div className="Contenedor-principal">
               <ul className="grid-container-noticias">
                 {noticias.map((noticia, index) => (
                   <ScrollAnimation key={noticia.id_Noticia} delay={index * 0.2}>
-                    <li className="grid-item-noticias">
-                      <CarruselImagenes
-                        cover={noticia.cover}
-                        nombre_Noticias={noticia.nombre_Noticias}
-                        contenido_Noticia={noticia.contenido_Noticia}
-                      />
-                      <span>{noticia.id_Noticia}</span>
-                    </li>
+                    <CarruselImagenes
+                      cover={noticia.cover}
+                      nombre_Noticias={noticia.nombre_Noticias}
+                      contenido_Noticia={noticia.contenido_Noticia}
+                    />
                   </ScrollAnimation>
                 ))}
               </ul>

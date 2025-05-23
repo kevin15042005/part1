@@ -50,6 +50,8 @@ export default function CrudNoticiasPintura() {
     obtenerNoticias();
   }, []);
 
+      //Subir Noticias
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     limpiarCampos();
@@ -69,7 +71,6 @@ export default function CrudNoticiasPintura() {
     })
     
 
-    //Subir Noticias
     try {
       const res = await fetch("http://localhost:8080/pintura/crear", {
         method: "POST",

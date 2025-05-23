@@ -48,10 +48,11 @@ export default function CrudNoticias() {
 
     obtenerNoticias();
   }, []);
-
+  //Crear Noticia
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    limpiarCampos();
+    const formData = new FormData();
     if (noticiasPublicadas >= 9) {
       alert(
         "Ya llegaste al límite de 9 noticias publicadas.Elimina o Actualiza"
@@ -64,7 +65,6 @@ export default function CrudNoticias() {
       return;
     }
 
-    const formData = new FormData();
     formData.append("nombre_Noticias", titulo);
     formData.append("contenido_Noticia", descripcion);
     imagen.forEach((imagen) => {

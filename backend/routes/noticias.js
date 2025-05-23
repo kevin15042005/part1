@@ -25,30 +25,42 @@ router.get("/", (req, res) => {
 
 // Crear noticia
 router.post("/crear", upload.array("cover"), (req, res) => {
-  try {
-    const { nombre_Noticias, contenido_Noticia } = req.body;
-    const coverFiles = req.files?.map((file) => file.filename) || [];
+  const { nombre_Noticias, contenido_Noticia } = req.body;
+  const coverFiles = req.files?.map((file) => file.filename);
+  const cover = coverFiles?.join(",") || null;
+  if (
+    !nombre_Noticias ||
+    !contenido_Noticia ||
+    coverFiles.length === 0
+  ) {
+    return res
+      .status(400)
+      .json({ message: "Todos los campos son obligatorios" });
+  }
 
-    if (!nombre_Noticias || !contenido_Noticia || coverFiles.length === 0) {
-      return res.status(400).json({ message: "Todos los campos son obligatorios" });
-    }
+  const q = `
+    INSERT INTO Noticias (
+      nombre_Noticias,
+      contenido_Noticia,
+      fecha_Publicacion,
+      id_Administrador,
+      cover
+    )
+    VALUES (?,  ?,NOW(), ?, ?)
+  `;
 
-    const coverFile = coverFiles[0];
-    const q = `INSERT INTO noticias (nombre_Noticias, contenido_Noticia, fecha_Publicacion, id_Administrador, cover) VALUES (?, ?, NOW(), ?, ?)`;
-
-    db.query(q, [nombre_Noticias, contenido_Noticia, 1, coverFile], (err) => {
+  db.query(
+    q,
+    [nombre_Noticias, contenido_Noticia, 1, cover],
+    (err) => {
       if (err) {
-        console.error("Error en query:", err);
+        console.error(err);
         return res.status(500).json({ error: "Error al insertar noticia" });
       }
       return res.json({ message: "✅ Noticia publicada correctamente" });
-    });
-  } catch (error) {
-    console.error("Error en ruta /crear:", error);
-    res.status(500).json({ error: "Error interno del servidor" });
-  }
+    }
+  );
 });
-
 
 // Actualizar noticia
 router.put("/", upload.single("cover"), (req, res) => {

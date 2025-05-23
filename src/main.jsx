@@ -9,7 +9,7 @@ import Pintura from "./Pages/Pintura/Pintura.jsx";
 import Noticias from "./Pages/Noticias/Noticia.jsx";
 import Loging from "./Pages/Loging/index.jsx";
 import Nosotros from "./Pages/Nosotros/Index";
-import Compra from "./Pages/Compra/index.jsx";
+import Compra from "./Pages/Compra/Shop.jsx";
 
 import CrudNoticias from "./Pages/Crud/Noticia/Noticia.jsx";
 import CrudNoticiasPintura from "./Pages/Crud/Pintura/Pintura1.jsx";

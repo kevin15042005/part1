@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../../../Components/layout";
-import "./Shop1.css"
+import "./Shop1.css";
 export default function Shop() {
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
@@ -9,15 +9,13 @@ export default function Shop() {
   const [precio_Shop, setPrecio_Shop] = useState("");
   const [noticiasPublicadas, setNoticiasPublicadas] = useState(0);
 
-
   const [tituloActualizar, setTituloActualizar] = useState("");
   const [descripcionActualizar, setDescripcionActualizar] = useState("");
   const [imagenActualizar, setImagenActualizar] = useState(null);
   const [id_ShopActualizar, setIdShopActualizar] = useState("");
   const [precio_ShopActualizar, setPrecio_ShopActualizar] = useState("");
 
-  const [id_ShopEliminar,setShopIdEliminar]= useState("");
-
+  const [id_ShopEliminar, setShopIdEliminar] = useState("");
 
   const limpiarCampos = () => {
     setTitulo("");
@@ -25,7 +23,7 @@ export default function Shop() {
     setImagen(null);
     setIdShop("");
     setPrecio_Shop("");
-    document.getElementById("fileInput").value="";
+    document.getElementById("fileInput").value = "";
   };
 
   const limpiarCamposActualizar = () => {
@@ -34,44 +32,46 @@ export default function Shop() {
     setImagenActualizar(null);
     setIdShopActualizar("");
     setPrecio_ShopActualizar("");
-    document.getElementById("fileInputActualizar").value="";
+    document.getElementById("fileInputActualizar").value = "";
   };
-    const limpiarCampoEliminar=()=>{
-      setShopIdEliminar("");
-    }
+  const limpiarCampoEliminar = () => {
+    setShopIdEliminar("");
+  };
 
   useEffect(() => {
     const obtenerNoticias = async () => {
       try {
         const res = await fetch("http://localhost:8080/Shop");
         const data = await res.json();
-        setNoticiasPublicadas(data.length)
+        setNoticiasPublicadas(data.length);
       } catch (err) {
         console.error("Error al obtener la noticia", err);
       }
     };
     obtenerNoticias();
   });
-
+  //Crear productos
   const handleSubmit = async (e) => {
     e.preventDefault(); //
     limpiarCampos();
-    const formData = new FormData();
+    if (!titulo || !descripcion || !precio_Shop || !imagen) {
+      alert("Ingrese todos los campos");
+      return;
+    }
     if (noticiasPublicadas >= 9) {
       alert("LLegaste a el limite de la publicacion");
       return;
     }
-    if(!titulo||!descripcion||!precio_Shop||!imagen){
-      alert("Ingrese todos los campos")
-      return
-    }
+    const formData = new FormData();
     formData.append("nombre_Shop", titulo);
     formData.append("contenido_Shop", descripcion);
     formData.append("precio_Shop", precio_Shop);
-    formData.append("cover", imagen);
+    imagen.forEach((imagen, index) => {
+      formData.append("cover", imagen);
+    });
 
     try {
-      const res = await fetch("http://localhost:8080/Shop", {
+      const res = await fetch("http://localhost:8080/Shop/crear", {
         method: "POST",
         body: formData,
       });
@@ -84,17 +84,16 @@ export default function Shop() {
       alert("Error al crear la Articulo");
     }
   };
-
+  //Actualizar Productos
   const handleUpdate = async (e) => {
-    e.preventDefault(); 
-    limpiarCamposActualizar();
+    e.preventDefault();
     const formData = new FormData();
+    limpiarCamposActualizar();
     formData.append("id_Shop", id_ShopActualizar);
     formData.append("nombre_Shop", tituloActualizar);
     formData.append("contenido_Shop", descripcionActualizar);
     formData.append("precio_Shop", precio_ShopActualizar);
     if (imagen) formData.append("cover", imagenActualizar);
-
     try {
       const res = await fetch("http://localhost:8080/Shop", {
         method: "PUT",
@@ -108,7 +107,7 @@ export default function Shop() {
       alert("Error al actualizar la Articulo");
     }
   };
-
+//Eliminar Producto
   const handleDelete = async (e) => {
     e.preventDefault();
     limpiarCampoEliminar();
@@ -127,77 +126,88 @@ export default function Shop() {
 
   return (
     <div className="Menu-Principal">
-    <Layout>
-      <div className="Titulo-Shop">
-        <h1>Crud Shop</h1>
-      </div>
-      <section className="Formularios">
-        <form onSubmit={handleSubmit}>
-          <h2>Crear Articulo</h2>
-          <input
-            type="text"
-            placeholder="Título"
-            value={titulo}
-            onChange={(e) => setTitulo(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Descripción"
-            value={descripcion}
-            onChange={(e) => setDescripcion(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Costo"
-            value={precio_Shop}
-            onChange={(e) => setPrecio_Shop(e.target.value)}
-          />
-          <input type="file" id="fileInput" onChange={(e) => setImagen(e.target.files[0])} />
-          <button type="submit">Crear Noticia</button>
-        </form>
+      <Layout>
+        <div className="Titulo-Shop">
+          <h1>Crud Shop</h1>
+        </div>
+        <section className="Formularios">
+          <form onSubmit={handleSubmit}>
+            <h2>Crear Articulo</h2>
+            <input
+              type="text"
+              placeholder="Título"
+              value={titulo}
+              onChange={(e) => setTitulo(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Descripción"
+              value={descripcion}
+              onChange={(e) => setDescripcion(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Costo"
+              value={precio_Shop}
+              onChange={(e) => setPrecio_Shop(e.target.value)}
+            />
 
-        <form onSubmit={handleUpdate}>
-          <h2>Actualizar Noticia</h2>
-          <input
-            type="text"
-            placeholder="Título"
-            value={tituloActualizar}
-            onChange={(e) => setTituloActualizar(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Descripción"
-            value={descripcionActualizar}
-            onChange={(e) => setDescripcionActualizar(e.target.value)}
-          />
-          <input type="file" id="fileInputActualizar" onChange={(e) => setImagenActualizar(e.target.files[0])} />
-          <input
-            type="text"
-            placeholder="Costo"
-            value={precio_ShopActualizar}
-            onChange={(e) => setPrecio_ShopActualizar(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="ID Noticia"
-            value={id_ShopActualizar}
-            onChange={(e) => setIdShopActualizar(e.target.value)}
-          />
-          <button type="submit">Actualizar</button>
-        </form>
+            <input
+              type="file"
+              id="fileInput"
+              multiple
+              onChange={(e) => setImagen(Array.from(e.target.files))}
+            />
 
-        <form onSubmit={handleDelete}>
-          <h2>Eliminar Noticia</h2>
-          <input
-            type="text"
-            placeholder="Título de la noticia"
-            value={id_ShopEliminar}
-            onChange={(e) => setShopIdEliminar(e.target.value)}
-          />
-          <button type="submit">Eliminar</button>
-        </form>
-      </section>
-    </Layout>
+            <button type="submit">Crear Noticia</button>
+          </form>
+
+          <form onSubmit={handleUpdate}>
+            <h2>Actualizar Noticia</h2>
+            <input
+              type="text"
+              placeholder="Título"
+              value={tituloActualizar}
+              onChange={(e) => setTituloActualizar(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Descripción"
+              value={descripcionActualizar}
+              onChange={(e) => setDescripcionActualizar(e.target.value)}
+            />
+            <input
+              type="file"
+              id="fileInputActualizar"
+              onChange={(e) => setImagenActualizar(e.target.files[0])}
+            />
+            <input
+              type="text"
+              placeholder="Costo"
+              value={precio_ShopActualizar}
+              onChange={(e) => setPrecio_ShopActualizar(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="ID Noticia"
+              value={id_ShopActualizar}
+              onChange={(e) => setIdShopActualizar(e.target.value)}
+            />
+            <button type="submit">Actualizar</button>
+          </form>
+
+          <form onSubmit={handleDelete}>
+            <h2>Eliminar Noticia</h2>
+            <input
+              type="text"
+              placeholder="Título de la noticia"
+              value={id_ShopEliminar}
+              onChange={(e) => setShopIdEliminar(e.target.value)}
+            />
+            <button type="submit">Eliminar</button>
+          </form>
+        </section>
+      </Layout>
     </div>
   );
 }

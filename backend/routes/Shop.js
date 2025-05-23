@@ -24,24 +24,28 @@ router.get("/", (req, res) => {
 
 //Crear articulos
 
-router.post("/", upload.single("cover"), (req, res) => {
-    const { nombre_Shop, contenido_Shop, precio_Shop } = req.body;
-    const cover = req.file?.filename || null;
-    console.log("Creacion de articulo")
-    // Validación básica
-    if (!nombre_Shop || !contenido_Shop || !precio_Shop) {
-      return res.status(400).json({ error: "Faltan campos obligatorios" });
+router.post("/crear", upload.array("cover"), (req, res) => {
+  const { nombre_Shop, contenido_Shop, precio_Shop } = req.body;
+
+  const coverFiles = req.files?.map((file) => file.filename) || [];
+  const cover = coverFiles.join(","); // Almacena los nombres separados por comas
+
+  if (!nombre_Shop || !contenido_Shop || !precio_Shop) {
+    return res.status(400).json({ message: "Todos los campos son obligatorios" });
+  }
+
+  const q = `
+    INSERT INTO Shop (nombre_Shop, contenido_Shop, precio_Shop, id_Administrador, cover)
+    VALUES (?, ?, ?, ?, ?)`;
+
+  db.query(q, [nombre_Shop, contenido_Shop, precio_Shop, 1, cover], (err) => {
+    if (err) {
+      return res.status(500).json({ error: "Error al insertar artículo" });
     }
-  
-    const q = `INSERT INTO Shop (nombre_Shop, contenido_Shop, precio_Shop, id_Administrador, cover) VALUES (?, ?, ?, ?, ?)`;
-    db.query(q, [nombre_Shop, contenido_Shop, precio_Shop, 1, cover], (err) => {
-      if (err) {
-        return res.status(500).json({ error: "Error al insertar artículo" });
-      }
-      return res.json({ message: "✅ Artículo publicado correctamente" });
-    });
+    return res.json({ message: "✅ Artículo publicado correctamente" });
   });
-  
+});
+
 //Actualizar articulo
 router.put("/", upload.single("cover"), (req, res) => {
   const { id_Shop, nombre_Shop, contenido_Shop, precio_Shop } = req.body;

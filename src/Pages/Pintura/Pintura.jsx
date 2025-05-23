@@ -71,8 +71,8 @@ function CarruselImagenesFijas() {
       setTimeout(() => {
         setIndexActual((prev) => (prev + 1) % imagenes.length);
         setFade(false);
-      }, 1000); // Duración igual al transition en CSS
-    }, 4000); // Intervalo total (3s visible + 1s transición)
+      }, 1000); 
+    }, 4000); 
     return () => clearInterval(intervalo);
   }, [imagenes.length]);
 
